@@ -7,6 +7,7 @@ import authService from "../../services/authService";
 import Users from '../Users/Users'
 import "./App.css";
 import Home from '../Home/Home'
+import Profile from "../Profile/Profile"
 
 class App extends Component {
   state = {
@@ -60,6 +61,20 @@ class App extends Component {
             user ? <Users /> : <Redirect to="/login" />
           }
         />
+       <Route 
+          exact path='/profile'
+          render={() => 
+            <Profile  
+              user={this.state.user} />
+              }
+            /> 
+            <Route 
+          exact path='/add'
+          render={() => 
+            <Profile  
+              user={this.state.user} />
+              }
+            /> 
       </>
     );
   }
