@@ -6,6 +6,7 @@ import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Users from '../Users/Users'
 import "./App.css";
+import Profile from "../Profile/Profile"
 
 class App extends Component {
   state = {
@@ -33,6 +34,7 @@ class App extends Component {
           render={() => (
             <main>
               <h1>Welcome. This is an authorization template.</h1>
+            
             </main>
           )}
         />
@@ -63,6 +65,20 @@ class App extends Component {
             user ? <Users /> : <Redirect to="/login" />
           }
         />
+       <Route 
+          exact path='/profile'
+          render={() => 
+            <Profile  
+              user={this.state.user} />
+              }
+            /> 
+            <Route 
+          exact path='/add'
+          render={() => 
+            <Profile  
+              user={this.state.user} />
+              }
+            /> 
       </>
     );
   }
