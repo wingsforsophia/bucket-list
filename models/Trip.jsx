@@ -8,7 +8,9 @@ const tripSchema = new Schema ({
     arriving: String, 
     city: String, 
     country: String, 
-    intinerary: [{type: mongoose.Schema.Types.ObjectId, ref: "Items"}]
+    intinerary: [{type: mongoose.Schema.Types.ObjectId, ref: "Items"}],
+    messageBoard: [{type: mongoose.Schema.Types.ObjectId, ref: "Messages"}],
+
 
 
 })
