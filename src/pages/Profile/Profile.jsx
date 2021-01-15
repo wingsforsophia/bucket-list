@@ -11,14 +11,10 @@ const Profile = ({user, pictureFile})=> {
     return (
        
         <>
-        <div>
-        
-       
-    
-        <h1 key={user.id}>{user.name}'s Bucket List</h1>
-
-        <FileUpload/>
-        <FollowButton/>
+        <div className='profile'>
+            <h1 key={user.id} className='profile'>{user.name}'s Bucket List</h1>
+            <FileUpload/>
+            <FollowButton/>
         </div>
        
         </>

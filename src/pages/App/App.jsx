@@ -8,6 +8,8 @@ import Users from '../Users/Users'
 import "./App.css";
 import Home from '../Home/Home'
 import Profile from "../Profile/Profile"
+import ViewTrips from '../Trips/ViewTrips/ViewTrips'
+import AddTrips from '../Trips/AddTrips/AddTrips'
 
 class App extends Component {
   state = {
@@ -69,12 +71,19 @@ class App extends Component {
               }
             /> 
             <Route 
-          exact path='/add'
+          exact path='/addtrip'
           render={() => 
-            <Profile  
+            <AddTrips 
               user={this.state.user} />
               }
             /> 
+          <Route 
+          exact path='/trips'
+          render={() => 
+            <ViewTrips 
+              user={this.state.user} />
+              }
+            />
       </>
     );
   }

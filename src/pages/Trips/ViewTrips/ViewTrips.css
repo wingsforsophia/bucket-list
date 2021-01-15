@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-div.profile{
+div.viewTrips{
     font-family: 'Open Sans Condensed', sans-serif;
 }
-
-h1.profile{
+h1.viewTrips{
     text-align: center;
-}
-.profilePicture{
-    height: 50px;
-    width: 50px;
+
 }
