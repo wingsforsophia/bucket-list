@@ -24,5 +24,7 @@ __Pages__
 -Edit each individual trip under Trip Details
 )
 4. Profile
-5. 
+   (
+       
+   )
 
