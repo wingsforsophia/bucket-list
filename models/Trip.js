@@ -9,7 +9,7 @@ const tripSchema = new Schema ({
     city: String, 
     country: String, 
     itinerary: [{type: mongoose.Schema.Types.ObjectId, ref: "Items"}],
-    messageBoard: [{type: mongoose.Schema.Types.ObjectId, ref: "Messages"}],
+    discussionBoard: [{type: mongoose.Schema.Types.ObjectId, ref: "DiscussionBoard"}],
 })
 
 module.exports = mongoose.model('Trip', tripSchema)
