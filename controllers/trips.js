@@ -11,13 +11,19 @@ module.exports = {
 function index (req, res) {
     Trip.find({})
       .then((trips) => {
-          res.json(trips)});
+          res.json(trips)
+        })
+        .catch(err => {res.json(err)})
 }
 
 
 
 function show (req, res) {
-    
+   Trip.findById(req.params.id)
+     .then((trip) => {
+         res.json(trip)
+     }) 
+     .catch(err => {res.json(err)})
 }
 
 function create (req, res) {
@@ -25,6 +31,7 @@ function create (req, res) {
       .then((trip) => {
           res.json(trip)
       })    
+      .catch(err => {res.json(err)})
 }
 
 function update (req, res) {
@@ -32,6 +39,10 @@ function update (req, res) {
 }
 
 function deleteTrip (req, res) {
-    
+    Trip.findByIdAndDelete(req.params.id)
+      .then((trip) => {
+        res.json(trip)
+      })
+      .catch(err => {res.json(err)})
 }
 
