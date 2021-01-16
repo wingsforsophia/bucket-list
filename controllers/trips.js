@@ -9,7 +9,8 @@ module.exports = {
 }
 
 function index (req, res) {
-
+    res.send('<h1>yay trips</h1>')
+    Trip.find({}).then((trips) => res.json(trips));
 }
 
 
