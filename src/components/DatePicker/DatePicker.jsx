@@ -14,6 +14,8 @@ const  handleResponsive  =  setNumberOfMonth  =>  {
 	}
 };
 
+const today = Date.now()
+
 const  Day = ({  day  }) => {
 	return  (
 		<>
@@ -22,20 +24,20 @@ const  Day = ({  day  }) => {
 		</>
 		);
 	};
-	
+const  onChange = date => console.log(date)	
+
 class Calendar extends Component {
 
-//   onChange = date => console.log(date)
-
-  render() {
+  render() { 
+       
     return (
       <ThemeProvider theme={theme}>
-        <DatePicker
-        //   handleChange={onChange}
-		  selectedDays={['2019-11-06']} //initial selected days
+        <RangePicker
+          handleChange={onChange}
+		  selectedDays={[today]} //initial selected days
 		  jalali={false}
-		  numberOfMonths={3}
-		  numberOfSelectableDays={3} // number of days you need 
+		  numberOfMonths={1}
+		  numberOfSelectableDays={30} // number of days you need 
 		  disabledDays={['2019-12-02']} //disabeld days
 		  responsive={handleResponsive} // custom responsive, when using it, `numberOfMonths` props not working
 		  disabledBeforToday={true} 
