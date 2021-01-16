@@ -2,10 +2,7 @@ import React, { useState, useRef, useCallback } from "react";
 import MapGL from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
 
-
 const MAPBOX_TOKEN = `${process.env.REACT_APP_MAP_ACCESS_TOKEN}`;
-
-
 
 const Home = () => {
   const [viewport, setViewport] = useState({
@@ -29,7 +26,7 @@ const Home = () => {
     [handleViewportChange]
   );
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "100vh", color: 'whitesmoke', fontSize: '25'}}>
       <MapGL
         ref={mapRef}
         {...viewport}
