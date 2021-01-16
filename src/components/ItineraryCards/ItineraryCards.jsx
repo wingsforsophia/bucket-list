@@ -11,7 +11,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 500,
+    maxWidth: 700,
+    width: 550,
     marginBottom: 15
   },
   media: {
@@ -50,6 +51,7 @@ const ItineraryCards = ({ itineraries, activities }) => {
 
   let path = window.location.pathname;
 
+//   to be changed
   const itinerariesPerCity = [{ _id: "1" }, { _id: "2" }, { _id: "3" }];
 
   const handleExpandClick = i => {

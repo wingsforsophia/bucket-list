@@ -2,3 +2,8 @@ h1.viewTrips{
     text-align: center;
     
 }
+div.trips{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
