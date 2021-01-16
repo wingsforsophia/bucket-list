@@ -20,7 +20,10 @@ function show (req, res) {
 }
 
 function create (req, res) {
-    
+    Trip.create(req.body)
+      .then((trip) => {
+          res.json(trip)
+      })    
 }
 
 function update (req, res) {
