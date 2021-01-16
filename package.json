@@ -25,6 +25,7 @@
     "react-dom": "^16.13.1",
     "react-images-upload": "^1.2.8",
     "react-map-gl": "^6.0.3",
+    "react-map-gl-geocoder": "^2.1.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "react-sortable-hoc": "^1.11.0",
