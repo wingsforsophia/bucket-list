@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
-
-div.viewTrips{
-    font-family: 'Open Sans Condensed', sans-serif;
-}
 h1.viewTrips{
     text-align: center;
-
+    
+}
+div.trips{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }

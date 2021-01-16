@@ -28,3 +28,7 @@ __Pages__
        
    )
 
+
+@material-ui/icons
+@material-ui/core
+Tinder Cards
