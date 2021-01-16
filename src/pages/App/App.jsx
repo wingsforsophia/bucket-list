@@ -10,6 +10,7 @@ import Home from '../Home/Home'
 import Profile from "../Profile/Profile"
 import ViewTrips from '../Trips/ViewTrips/ViewTrips'
 import AddTrips from '../Trips/AddTrips/AddTrips'
+import Messages from '../Messages/Messages'
 
 class App extends Component {
   state = {
@@ -83,6 +84,10 @@ class App extends Component {
             <ViewTrips 
               user={this.state.user} />
               }
+            />
+            <Route 
+            exact path='/messages'
+            render={() => <Messages />}
             />
       </>
     );
