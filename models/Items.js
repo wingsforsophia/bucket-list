@@ -3,19 +3,20 @@ const Schema = mongoose.Schema
 
 const reviewSchema = new Schema ({
     reviewer: String, 
-    reviewerAvatar: String, 
+    avatar: String, 
     rating: {type: Number, min: 1, max: 10},
     content: String 
 })
 
 const photoSchema = new Schema ({
     photographer: String, 
-    photographerAvatar: String, 
+    avatar: String, 
     photo: String
 })
 
 const itemSchema = new Schema ({
     user: [{ type: Schema.Types.ObjectId, ref: "User" }], 
+    avatar: String,
     dateTime: Date, 
     location: String, 
     tickets: {type: Boolean, default: false},
