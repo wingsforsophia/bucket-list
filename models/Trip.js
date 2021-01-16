@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const tripSchema = new Schema ({
     date: Date, 
+    tripName: String,
     departing: String, 
     arriving: String, 
     city: String, 
