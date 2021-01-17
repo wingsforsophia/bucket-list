@@ -6,9 +6,19 @@ module.exports = {
 }
 
 function create (req, res) {
-  Trip.findById(req.params.id)
-    .then((trip) => {
-        trip.itinerary.push(req.body)
+  Item.create(req.body)
+    .then((item) => {
+        Trip.findById(req.params.id)
+          .then((trip) => {
+              trip.itinerary.push(item._id)
+              trip.save()
+                .then((trip) => {
+                    res.json(trip)
+                })
+
+          })
+
+        
     })
 }
 
