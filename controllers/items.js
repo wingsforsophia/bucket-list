@@ -2,7 +2,8 @@ const Item = require('../models/item')
 const Trip = require('../models/trip')
 
 module.exports = {
-    create
+    create,
+    index
 }
 
 function create (req, res) {
@@ -15,10 +16,19 @@ function create (req, res) {
                 .then((trip) => {
                     res.json(trip)
                 })
-
           })
-
-        
     })
 }
+
+function index (req, res) {
+    Trip.findById(req.params.id)
+    .populate('itinerary')
+      .then((trip) => {
+        res.json(trip)
+      })
+
+}
+
+
+
 
