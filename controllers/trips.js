@@ -20,6 +20,7 @@ function index(req, res) {
 
 function show(req, res) {
   Trip.findById(req.params.id)
+  .populate('itinerary')
     .then((trip) => {
       res.json(trip);
     })
