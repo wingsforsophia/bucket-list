@@ -20,13 +20,12 @@ function create (req, res) {
     })
 }
 
-function index (req, res) {
+function index (req, res) { //to see all itinerary items for a trip
     Trip.findById(req.params.id)
     .populate('itinerary')
       .then((trip) => {
         res.json(trip)
       })
-
 }
 
 
