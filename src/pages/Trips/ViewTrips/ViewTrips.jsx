@@ -11,14 +11,13 @@ const ViewTrips=({user})=> {
         <div>
             <>
             <div className='viewTrips'>
-                <h1 key={user.id} className='viewTrips'>  Upcoming & Future Trips</h1>
+                <h1  className='viewTrips'> Bucket List</h1>
                 <div className='trips'>
                     <div className='planner'>
                       <Countdown/>
-                      <Calendar/>  
                     </div>
                     <div className='itineraryTrips'>
-                    <h2 className='viewTrips'>{user.name}'s Itineraries</h2>
+                    <h2 key={user.id}className='viewTrips'>Upcoming & Future Trips for {user.name} </h2>
                        <ItineraryCards /> 
                     </div>
                     

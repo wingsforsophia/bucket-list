@@ -1,22 +1,58 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import './Countdown.css'
 
 const Countdown =()=> {
+  const[timerDays, setTimerDays]= useState('00')
+  const[timerHours, setTimerHours]=useState('00')
+  const[timerMinutes, setTimerMinutes]=useState('00')
+  const[timerSeconds, setTimerSeconds]=useState('00')
+
+  let interval= useRef()
+
+  const startTimer =()=>{
+    const countdownDate = new Date('January 20, 2021 00:00:00').getTime()
+
+    interval= setInterval(()=>{
+      const now = new Date().getTime()
+      const trip =countdownDate - now
+
+      const days = Math.floor(trip /(1000 * 60 * 60 *24))
+      const hours = Math.floor((trip %(1000* 60* 60* 24))/ (1000 * 60 * 60))
+      const minutes = Math.floor((trip %(1000 * 60 * 60))/ (1000 * 60))
+      const seconds = Math.floor((trip %(1000 * 60 ))/ 1000)
+
+      if (trip < 0){
+        clearInterval(interval.current)
+      } else{
+        setTimerDays(days)
+        setTimerHours(hours)
+        setTimerMinutes(minutes)
+        setTimerSeconds(seconds)
+      }
+    }, 1000)
+  }
+
+  useEffect(()=>{
+    startTimer()
+    return()=>{
+      clearInterval(interval.current)
+    }
+  })
 
     return (
-      <div>
+      <div className='countdown'>
        <section className='timer-container'>
-          <section>
+         <section className='timer'>
+         <section>
               <h2 className='countdown'>Countdown to trip.location</h2>
           </section>
-         <section className='timer'>
-           <div>
+           <div className='timeCounter'>
              <section className='time'>
-               <p className='time'>87</p>
+               <p className='time'>{timerDays}</p>
                <p><small>Days</small></p>
              </section>
              <section className='hours'>
-               <p className='time'>87</p>
+               <p className='time'>{timerHours}</p>
                <p><small>Hours</small></p>
              </section>
              <section className='countdown'>
@@ -26,11 +62,11 @@ const Countdown =()=> {
               </svg>
             </section> 
              <section className='time'>
-               <p className='time'>87</p>
+               <p className='time'>{timerMinutes}</p>
                <p><small>Minutes</small></p>
              </section>
              <section className='hours'>
-               <p className='time'>87</p>
+               <p className='time'>{timerSeconds}</p>
                <p><small>Seconds</small></p>
              </section>
            </div>
@@ -38,6 +74,7 @@ const Countdown =()=> {
        </section>
       </div>
     );
+
   }
 
 
