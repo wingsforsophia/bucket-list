@@ -29,7 +29,7 @@ function show(req, res) {
 }
 
 function create(req, res) {
-  req.body.addedBy = req.user._id
+//   req.body.addedBy = req.user._id (add this in later to attach user to the trip object)
   Trip.create(req.body)
     .then((trip) => {
       res.json(trip);

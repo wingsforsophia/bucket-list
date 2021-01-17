@@ -16,3 +16,5 @@ const tripSchema = new Schema ({
 })
 
 module.exports = mongoose.model('Trip', tripSchema)
+
+// 2021-03-25T23:40:00.000Z
