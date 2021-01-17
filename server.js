@@ -11,6 +11,7 @@ require('./config/database');
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const tripsRouter = require('./routes/trips')
+const apiRouter = require('./routes/api')
 
 const cors = require('cors')
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/trips', tripsRouter);
+app.use('/pickles', apiRouter);
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
