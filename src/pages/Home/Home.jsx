@@ -6,8 +6,8 @@ const MAPBOX_TOKEN = `${process.env.REACT_APP_MAP_ACCESS_TOKEN}`;
 
 const Home = () => {
   const [viewport, setViewport] = useState({
-    latitude: 37.7577,
-    longitude: -122.4376,
+    latitude: 41.8781,
+    longitude: -87.6298,
     zoom: 8,
   });
   const mapRef = useRef();
