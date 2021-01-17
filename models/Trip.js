@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 
 
 const tripSchema = new Schema ({
-    date: Date, 
+    startDate: Date, 
+    endDate: Date,
     tripName: String,
     departing: String, 
     arriving: String, 
