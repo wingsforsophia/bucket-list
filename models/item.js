@@ -15,7 +15,7 @@ const photoSchema = new Schema ({
 })
 
 const itemSchema = new Schema ({
-    user: [{ type: Schema.Types.ObjectId, ref: "User" }], 
+    addedBy: [{ type: Schema.Types.ObjectId, ref: "User" }], 
     avatar: String,
     dateTime: Date, 
     location: String, 
