@@ -45,6 +45,11 @@ const NavBar = ({ user, handleLogout }) => {
                     Message Board
                   </Link>
                 </li>
+                <li className='nav-item'>
+                  <Link to='/search' className='nav-link'>
+                    Search for Points of interest 
+                  </Link>
+                </li>
                 <li className='nav-item dropdown'>
                   <Link
                     className='nav-link dropdown-toggle'

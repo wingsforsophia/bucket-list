@@ -16,7 +16,7 @@ class SearchForm extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleLocationSearch(this.state.formData);
+    this.props.handlePOISearch(this.state.formData);
   };
 
   render() {

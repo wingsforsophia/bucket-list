@@ -1,7 +1,23 @@
-const BASE_URL='https://api.opentripmap.com/0.1/en/places/'
+const BASE_URL='https://api.tomtom.com/search/2/poiSearch/'
+const axios=require('axios')
 
 
 
+module.exports={
+    searchPlaces
+}
 
 
-autosuggest?name=Paris&radius=2000&lon=45&lat=45&apikey=5ae2e3f221c38a28845f05b6dd90a8ab30b2a725b2b485dec6b9af58'
+function searchPlaces(req, res){
+    console.log('HERE')
+    axios
+      .get(
+        `https://api.tomtom.com/search/2/poiSearch/${req.body.query}.json?key=${process.env.TOM_TOM_API_KEY}`
+      )
+      .then((response) => {
+        res.json(response.data);
+      });
+    // console.log(res)
+}
+
+// https://api.tomtom.com/search/2/poiSearch/chicago.json?key=3bQm6h7bd8TJyO9QEon4Ib2ZB0Pa7eGq

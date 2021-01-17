@@ -11,6 +11,7 @@ import Profile from "../Profile/Profile"
 import ViewTrips from '../Trips/ViewTrips/ViewTrips'
 import AddTrips from '../Trips/AddTrips/AddTrips'
 import Messages from '../Messages/Messages'
+import POISearch from "../POISearch/POISearch";
 
 class App extends Component {
   state = {
@@ -88,6 +89,10 @@ class App extends Component {
             <Route 
             exact path='/messages'
             render={() => <Messages />}
+            />
+            <Route 
+            exact path='/search'
+            render={() => <POISearch />}
             />
       </>
     );
