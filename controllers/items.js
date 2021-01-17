@@ -3,7 +3,8 @@ const Trip = require('../models/trip')
 
 module.exports = {
     create,
-    index
+    index, 
+    update
 }
 
 function create (req, res) {
@@ -26,6 +27,13 @@ function index (req, res) { //to see all itinerary items for a trip
       .then((trip) => {
         res.json(trip)
       })
+}
+
+function update (req, res) {
+    Item.findByIdAndUpdate(req.params.itemId, req.body, { new: true })
+    .then((item) => {
+        res.json(item)
+    })
 }
 
 
