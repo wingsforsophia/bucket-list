@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
+div.countdownProfile{
+   display: flex;
+   justify-content: center;
+}
 div.profile{
     font-family: 'Open Sans Condensed', sans-serif;
+
 }
 
 h1.profile{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 50px;
+
+}
+h3.profile{
     text-align: center;
 }
 .profilePicture{

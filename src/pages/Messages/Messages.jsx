@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import DiscussionForum from '../../components/DiscussionForum/DiscussionForum'
+
+
+
 
 class Messages extends Component {
     state = {  }
     render() { 
         return ( 
             <>
-            <h1>This is the messages page</h1>
+            
+                <DiscussionForum/>
+            
             </>
          );
     }

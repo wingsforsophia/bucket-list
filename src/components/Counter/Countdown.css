@@ -1,0 +1,64 @@
+p.time {
+    font-size: 3em ;
+    padding: 10px;
+    
+}
+
+.timer-container{
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+.timer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 7em;
+    padding-top: 2em;
+    width: 100%;
+    height: 50%;
+}
+
+.timer div:first-child{
+    text-align: center;
+}
+svg.bi.bi-alarm{
+    color: red;
+}
+
+.timer div:last-child{
+    border: 2px solid rgba(128, 128, 128, 0.518);
+    box-shadow: grey 2px 7px;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* margin-top: 3em; */
+    padding: 4em;
+    text-align: center;
+    
+}
+section.countdown{
+    padding: 10px;
+    margin-top: 15px;
+}
+h2.countdown{
+    text-align: center;
+}
+
+section.time{
+    border-right: grey solid 1px;
+    border-top: grey solid 1px;
+    
+}
+section.hours{
+    border-left: grey solid 1px;
+    border-bottom: grey solid 1px;
+}
+
+@media screen and (max-width: 480px){
+    .timer div:last-child{
+        margin-left: 2em ;
+        margin-right: 2em;
+    }
+}
