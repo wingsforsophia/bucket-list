@@ -3,11 +3,12 @@ const Schema = mongoose.Schema
 
 
 const tripSchema = new Schema ({
+    addedBy: { type: Schema.Types.ObjectId, ref: 'User'},
     startDate: Date, 
     endDate: Date,
     tripName: String,
-    departing: String, 
-    arriving: String, 
+    departing: String, //airport code
+    arriving: String, //airport code
     city: String, 
     country: String, 
     itinerary: [{type: mongoose.Schema.Types.ObjectId, ref: "Items"}],
