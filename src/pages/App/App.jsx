@@ -12,6 +12,10 @@ import ViewTrips from '../Trips/ViewTrips/ViewTrips'
 import AddTrips from '../Trips/AddTrips/AddTrips'
 import Messages from '../Messages/Messages'
 import POISearch from "../POISearch/POISearch";
+import DiscussionPost from '../Messages/DiscussionPost/DiscussionPosts'
+import Destinations from '../Messages/Destinations/Destinations'
+import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
+import Favorite from '../../pages/Favorites/Favorite'
 
 class App extends Component {
   state = {
@@ -33,11 +37,13 @@ class App extends Component {
     return (
       <>
         <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
+        <FooterButtons/>
         <Route
           exact
           path="/"
           render={() => (<Home />)}
         />
+        
         <Route
           exact
           path="/signup"
@@ -68,7 +74,7 @@ class App extends Component {
        <Route 
           exact path='/profile'
           render={() => 
-            <Profile  
+            <Profile
               user={this.state.user} />
               }
             /> 
@@ -87,13 +93,28 @@ class App extends Component {
               }
             />
             <Route 
-            exact path='/messages'
-            render={() => <Messages />}
+            exact path='/discussion'
+            render={() => <Messages user={this.state.user} />}
             />
             <Route 
             exact path='/search'
             render={() => <POISearch />}
             />
+            <Route
+            exact path='/discussion/:name'
+            render={({match})=>
+            <DiscussionPost match={match} user={this.state.user}/>}
+            />  
+              <Route
+            exact path='/destinations'
+            render={({match})=>
+            <Destinations match={match} user={this.state.user}/>}
+            /> 
+            <Route exact path='/destinations/:name' render={({match})=><DiscussionPost match={match} user={this.state.user}/>}
+            />  
+            <Route exact path='/favorites' render={()=><Favorite user={this.state.user}/>}
+            />  
+
       </>
     );
   }

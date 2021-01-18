@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 700,
     width: 550,
-    marginBottom: 15
+    marginBottom: 70,
   },
   media: {
     height: 0,
@@ -67,7 +67,7 @@ const ItineraryCards = ({ itineraries, activities }) => {
               <p>City Location</p>
               <p>Date</p>
             </CardContent>
-          <CardActions disableSpacing>
+          <CardActions >
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>

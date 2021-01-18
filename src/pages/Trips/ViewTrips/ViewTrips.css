@@ -2,8 +2,24 @@ h1.viewTrips{
     text-align: center;
     
 }
+/* div.viewTrips{
+    background-image: url(https://i.imgur.com/WzUFKax.png);
+    background-position: center;
+    background-size: cover;
+} */
 div.trips{
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+   
+}
+
+div.itineraryCards{
+    margin-top: 60px;
+}
+h2.viewTrips{
+    text-align: center;
+    border-bottom: black 2px solid;
 }

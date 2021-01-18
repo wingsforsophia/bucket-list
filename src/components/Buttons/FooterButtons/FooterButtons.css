@@ -1,0 +1,35 @@
+div.swipeButtons{
+    position: fixed;
+    bottom: 0vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    margin-top: 50px;
+    overflow: hidden;
+    
+}
+
+/* stop-  */
+Button.swipeButtons_left{
+    padding: .25vw !important;
+    color: #ec5e6f !important;
+    border-radius: 50%;
+}
+Button.swipeButtons_star{ 
+    padding: .25vw !important;
+    color: #62b4f9;
+    border-radius: 50%;
+}
+Button.swipeButtons_right{
+    padding: .25vw !important;
+    color: #76e263 !important;
+    border-radius: 50%;
+   
+}
+Button.swipeButtons_lightning{
+    padding: .25vw !important;
+    color: #915dd1 !important;
+    border-radius: 50%;
+    
+}

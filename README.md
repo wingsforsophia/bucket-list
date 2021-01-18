@@ -32,3 +32,31 @@ __Pages__
 @material-ui/icons
 @material-ui/core
 Tinder Cards
+
+discussion board
+CodePen Home
+Inspinia Forum View
+Marek 
+https://codepen.io/SPQR/pen/WwyxgG
+
+
+view trips
+https://codesandbox.io/s/eloquent-sara-wswrn?file=/src/index.js
+
+
+map
+npm i react-map-gl-geocoder
+
+favicon
+carva
+
+profile
+bootstrap
+
+npm i bootstrap-icons
+
+addtrip
+react-hook-form
+
+confetti
+react-dom-confetti

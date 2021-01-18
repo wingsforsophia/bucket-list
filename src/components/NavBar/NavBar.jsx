@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+
 const NavBar = ({ user, handleLogout }) => {
     return (
       <>
@@ -41,7 +42,7 @@ const NavBar = ({ user, handleLogout }) => {
                   </Link>
                 </li>
                 <li className='nav-item'>
-                  <Link to='/messages' className='nav-link'>
+                  <Link to='/discussion' className='nav-link'>
                     Message Board
                   </Link>
                 </li>
@@ -74,12 +75,12 @@ const NavBar = ({ user, handleLogout }) => {
                     </a>
                   </div>
                 </li>
-                <li className='nav-item'>
+                <li className='nav-item logout'>
                   <Link to='/users' className='nav-link'>
                     Users
                   </Link>
                 </li>
-                <Link to='/' className='nav-link' onClick={handleLogout}>
+                <Link to='/' className='nav-link logout' onClick={handleLogout}>
                   Log Out
                 </Link>
               </ul>
