@@ -3,8 +3,8 @@ import React from "react";
 
 const POICard = (props) => {
   return (
-     <>
-        {props.results[0].poi.name}
+    <>
+      <h3 style={{color: 'black'}}>{props.POI}</h3>
       <br />
     </>
   );
