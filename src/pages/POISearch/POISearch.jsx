@@ -13,7 +13,6 @@ class POISearch extends Component {
      handlePOISearch = async (formData) => {
          const POI = await getPOIfromBackend(formData)
          console.log('right here')
-        //  console.log(POI)
          this.setState({POI: POI.results})
     }
 
