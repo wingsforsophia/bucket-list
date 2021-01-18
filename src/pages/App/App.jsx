@@ -16,6 +16,7 @@ import DiscussionPost from '../Messages/DiscussionPost/DiscussionPosts'
 import Destinations from '../Messages/Destinations/Destinations'
 import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
 import Favorite from '../../pages/Favorites/Favorite'
+import VanillaAddTrip from '../VanillaAddTrip/VanillaAddTrip'
 
 class App extends Component {
   state = {
@@ -114,6 +115,14 @@ class App extends Component {
             />  
             <Route exact path='/favorites' render={()=><Favorite user={this.state.user}/>}
             />  
+
+           <Route 
+             exact path='/vanilla'
+             render={() => 
+              <VanillaAddTrip 
+                user={this.state.user}  
+              />}
+          />
 
       </>
     );
