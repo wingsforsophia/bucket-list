@@ -1,3 +1,7 @@
 .pull-center{
     text-align: center;
 }
+div.ibox-content.forum-container{
+    margin-right: 30px;
+    margin-left: 30px;
+}

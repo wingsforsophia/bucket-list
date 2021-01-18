@@ -31,9 +31,10 @@ svg.bi.bi-alarm{
 
 section.timer{
     border: 2px solid rgba(128, 128, 128, 0.586);
-    box-shadow: grey 2px 7px;
-    background-color: rgb(243, 238, 238);
+    box-shadow: #cea726 2px 7px;
+    background-color:#0e101cd3;
     border-radius: 3px;
+    
 }
 
 div.timeCounter{
@@ -50,14 +51,17 @@ section.countdown{
 }
 h2.countdown{
     text-align: center;
-    color: black;
-    border-bottom: black 2px solid;
+    color: white;
+    border-bottom: white 2px solid;
    
+}
+h5.countdown{
+    padding: 10px;
 }
 
 section.time{
-    border-right: grey solid 1px;
-    border-top: grey solid 1px;
+    border-right: #cea726 solid 1px;
+    border-top: #cea726 solid 1px;
     
 }
 section.hours{
@@ -65,9 +69,3 @@ section.hours{
     border-bottom: grey solid 1px;
 }
 
-@media screen and (max-width: 480px){
-    .timer div:last-child{
-        margin-left: 2em ;
-        margin-right: 2em;
-    }
-}

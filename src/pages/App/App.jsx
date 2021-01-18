@@ -11,6 +11,8 @@ import Profile from "../Profile/Profile"
 import ViewTrips from '../Trips/ViewTrips/ViewTrips'
 import AddTrips from '../Trips/AddTrips/AddTrips'
 import Messages from '../Messages/Messages'
+import DiscussionPost from '../Messages/DiscussionPost/DiscussionPosts'
+import Destinations from '../Messages/Destinations/Destinations'
 
 class App extends Component {
   state = {
@@ -67,7 +69,7 @@ class App extends Component {
        <Route 
           exact path='/profile'
           render={() => 
-            <Profile  
+            <Profile
               user={this.state.user} />
               }
             /> 
@@ -86,9 +88,21 @@ class App extends Component {
               }
             />
             <Route 
-            exact path='/messages'
+            exact path='/discussion'
             render={() => <Messages />}
             />
+            <Route
+            exact path='/discussion/:name'
+            render={({match})=>
+            <DiscussionPost match={match}/>}
+            />  
+              <Route
+            exact path='/destinations'
+            render={({match})=>
+            <Destinations match={match}/>}
+            /> 
+            <Route exact path='/destinations/:name' render={({match})=><DiscussionPost match={match}/>}
+            />    
 
       </>
     );

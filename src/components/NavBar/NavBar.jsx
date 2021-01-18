@@ -41,7 +41,7 @@ const NavBar = ({ user, handleLogout }) => {
                   </Link>
                 </li>
                 <li className='nav-item'>
-                  <Link to='/messages' className='nav-link'>
+                  <Link to='/discussion' className='nav-link'>
                     Message Board
                   </Link>
                 </li>

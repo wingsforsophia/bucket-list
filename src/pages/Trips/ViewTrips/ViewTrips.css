@@ -2,11 +2,11 @@ h1.viewTrips{
     text-align: center;
     
 }
-div.viewTrips{
+/* div.viewTrips{
     background-image: url(https://i.imgur.com/WzUFKax.png);
     background-position: center;
     background-size: cover;
-}
+} */
 div.trips{
     display: flex;
     justify-content: space-between;

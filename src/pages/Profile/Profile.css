@@ -1,14 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-div.countdownProfile{
+label.cardProfile {
+    line-height: 3;
+    text-align: left;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+  } 
+div.userProfile{
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
+   margin-right: 30px;
+   margin-top: 30px;
+   
 }
-div.profile{
-    font-family: 'Open Sans Condensed', sans-serif;
-
+div.profilePic{
+    margin-left: 30px; 
+    
 }
-
+img.userProfile{
+    border-radius: 50%;
+    box-shadow: #cea726 2px 5px;
+    height: 250px;
+    width: 300px;
+}
+div.follow{
+    margin-left: 50px;
+}
 h1.profile{
     font-family: 'Open Sans Condensed', sans-serif;
     text-align: center;
@@ -19,7 +39,24 @@ h1.profile{
 h3.profile{
     text-align: center;
 }
-.profilePicture{
-    height: 50px;
-    width: 50px;
+
+h2.userProfile{
+    text-align: center;
+}
+@media screen and (max-width: 600px){
+    html{
+        width: 100%;
+    }
+    div.profile {
+        width: 100%;
+    }
+    div.countdownProfile{
+        width: 100%;
+    }
+    img.profileImg{
+        width: 100%;
+    }
+    div.profilePicture{
+        width: 50%;
+    }
 }

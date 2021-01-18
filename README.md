@@ -54,3 +54,6 @@ profile
 bootstrap
 
 npm i bootstrap-icons
+
+addtrip
+react-hook-form

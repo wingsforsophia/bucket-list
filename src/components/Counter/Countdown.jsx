@@ -49,11 +49,11 @@ const Countdown =()=> {
            <div className='timeCounter'>
              <section className='time'>
                <p className='time'>{timerDays}</p>
-               <p><small>Days</small></p>
+               <p><h5 className='countdown'>Days</h5 ></p>
              </section>
              <section className='hours'>
                <p className='time'>{timerHours}</p>
-               <p><small>Hours</small></p>
+               <p><h5 className='countdown'>Hours</h5 ></p>
              </section>
              <section className='countdown'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-alarm" viewBox="0 0 16 16">
@@ -63,11 +63,11 @@ const Countdown =()=> {
             </section> 
              <section className='time'>
                <p className='time'>{timerMinutes}</p>
-               <p><small>Minutes</small></p>
+               <p><h5 className='countdown'>Minutes</h5 ></p>
              </section>
              <section className='hours'>
                <p className='time'>{timerSeconds}</p>
-               <p><small>Seconds</small></p>
+               <p><h5 className='countdown'>Seconds</h5 ></p>
              </section>
            </div>
          </section>
