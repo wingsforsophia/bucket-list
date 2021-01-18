@@ -43,6 +43,31 @@ h3.profile{
 h2.userProfile{
     text-align: center;
 }
+div.sc-gsTCUz.dvNrgs{
+    background-color:#cea726 ;
+}
+input#file-upload-button{
+ background: #cea726;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+}
+
+input#file-upload-button:hover {
+  background: #165a22;
+}
+
+input#file-upload-button:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
 @media screen and (max-width: 600px){
     html{
         width: 100%;

@@ -8,7 +8,9 @@ const ImgUpload =({
     <div className="img-wrap img-upload" >
       <img className='userProfile' for="photo-upload" src={src}/>
     </div>
-    <input id="photo-upload" type="file" onChange={onChange}/> 
+    <br/>
+     <input className='chooseFile' id="photo-upload" type="file" onChange={onChange}/> 
+    
   </label>
 
 

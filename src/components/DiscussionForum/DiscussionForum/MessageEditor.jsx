@@ -29,7 +29,10 @@ createPost() {
 render() {
   return (
     <div className="panel panel-default post-editor">
-      <div className="panel-body">
+      <div className="panel-body"><label className='postMessage'>Title:</label>
+        <input className='form-control post-editor' value={this.state.newPostBody} onChange={this.handlePostEditorInputChange}/>
+        <br/>
+        <label className='postMessage'>Comment:</label>
         <textarea className="form-control post-editor-input" value={this.state.newPostBody} onChange={this.handlePostEditorInputChange} />
         <button className="btn btn-success post-editor-button" onClick={this.createPost}>Post</button>
       </div>

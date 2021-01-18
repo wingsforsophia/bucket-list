@@ -1,16 +1,63 @@
 import React, {useEffect, useRef, useState} from "react";
 import './Countdown.css'
+import Confetti from 'react-dom-confetti';
+
+
+const config={
+  angle: "180",
+  spread: 360,
+  startVelocity: 40,
+  elementCount: 70,
+  dragFriction: 0.12,
+  duration: 3000,
+  stagger: 3,
+  width: "10px",
+  height: "10px",
+  perspective: "500px",
+  colors:
+   [
+     '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+    '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
+    '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800',
+    '#FF5722'
+    ]
+};
+
 
 const Countdown =()=> {
   const[timerDays, setTimerDays]= useState('00')
   const[timerHours, setTimerHours]=useState('00')
   const[timerMinutes, setTimerMinutes]=useState('00')
   const[timerSeconds, setTimerSeconds]=useState('00')
+  const[showConfetti, setShowConfetti]=useState(false)
 
   let interval= useRef()
 
+ 
+
   const startTimer =()=>{
-    const countdownDate = new Date('January 20, 2021 00:00:00').getTime()
+    const countdownDate = new Date('January 18, 2021 05:09:00').getTime()
+
+
+  const config={
+    angle: "360",
+    spread: 360,
+    startVelocity: 40,
+    elementCount: 400,
+    dragFriction: 0.25,
+    duration: 7000,
+    stagger: 3,
+    width: "10px",
+    height: "10px",
+    perspective: "500px",
+    colors:
+   [
+     '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+    '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
+    '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800',
+    '#FF5722'
+    ]
+};
 
     interval= setInterval(()=>{
       const now = new Date().getTime()
@@ -22,19 +69,23 @@ const Countdown =()=> {
       const seconds = Math.floor((trip %(1000 * 60 ))/ 1000)
 
       if (trip < 0){
-        clearInterval(interval.current)
+        clearInterval(interval.current); setShowConfetti(config)
       } else{
         setTimerDays(days)
         setTimerHours(hours)
         setTimerMinutes(minutes)
         setTimerSeconds(seconds)
+       
       }
     }, 1000)
   }
 
+ 
+  
+
   useEffect(()=>{
     startTimer()
-    return()=>{
+    return()=>{ 
       clearInterval(interval.current)
     }
   })
@@ -70,6 +121,9 @@ const Countdown =()=> {
                <p><h5 className='countdown'>Seconds</h5 ></p>
              </section>
            </div>
+           
+        <Confetti active={showConfetti} config={config} />
+    
          </section>
        </section>
       </div>
