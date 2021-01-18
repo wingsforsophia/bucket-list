@@ -18,19 +18,21 @@ class POISearch extends Component {
     }
 
     render() { 
-        return ( 
-            <>
+        return (
+          <>
             <h3>Points of Interest Search</h3>
             <SearchForm handlePOISearch={this.handlePOISearch} />
-            {this.state.POI.length ?
-            <>
-            <h3>Working</h3>
-            </>
-            :
-            <h3>Add a city to search for Points of Interest</h3>
-            }
-            </>
-         );
+            {this.state.POI.length ? 
+              <>
+                {this.state.POI.map((POI) => (
+                  <POICard key={POI.id} POI={POI.poi.name} />
+                ))}
+              </>
+             : (
+              <h3>Add a city to search for Points of Interest</h3>
+            )}
+          </>
+        );
     }
 }
  
