@@ -119,11 +119,14 @@ class App extends Component {
            <Route 
              exact path='/vanilla'
              render={() => 
+              authService.getUser() ?
               <VanillaAddTrip 
                 user={this.state.user}  
-              />}
+              />
+              : 
+              <Redirect to='/login'/>
+            }
           />
-
       </>
     );
   }
