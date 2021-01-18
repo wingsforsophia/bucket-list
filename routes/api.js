@@ -3,7 +3,7 @@ const apiCtrl = require("../controllers/api");
 
 
 /*---------- Public Routes ----------*/
-router.get('/search', apiCtrl.searchPlaces)
+router.post('/search', apiCtrl.searchPlaces)
 
 
 /*---------- Protected Routes ----------*/

@@ -4,12 +4,12 @@ export function getPOIfromBackend(formData) {
   console.log(formData);
   return fetch("/pickles/search",
     {
-      method: "GET",
+      method: "POST",
       headers: {
         "content-type": "application/json",
-        Authorization: "Bearer " + tokenService.getToken(),
-      },
-    //   body: JSON.stringify(formData),
+        'Authorization': "Bearer " + tokenService.getToken(),
+    },
+    body: JSON.stringify(formData),
     },
     { mode: "cors" }
   )
