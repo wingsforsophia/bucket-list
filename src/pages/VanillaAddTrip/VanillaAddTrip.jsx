@@ -1,6 +1,7 @@
 import React from 'react';
 import '../VanillaAddTrip/VanillaAddTrip.css'
 
+
 function VanillaAddTrip(props) {
 
 	return (
