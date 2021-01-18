@@ -2,7 +2,7 @@ import React from 'react'
 import './AddTrip.css'
 import TripCards from '../../../components/TripCards/TripCard'
 import AddTripForm from '../../../components/AddTripForm/AddTripForm'
-import Calendar from '../../../components/DatePicker/DatePicker'
+import Calendar from '../../../components/Calendar/Calendar'
 
 function AddTrips() {
     return (

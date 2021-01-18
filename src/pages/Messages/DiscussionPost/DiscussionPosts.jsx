@@ -1,5 +1,5 @@
 import React from 'react'
-import Forum from "../../../components/DiscussionForum/DiscussionForum/DiscussionPost"
+import Forum from "../../../components/DiscussionForum/DiscussionPostComponents/DiscussionPostComponent"
 import './DiscussionPost.css'
 
 function DiscussionPosts() {

@@ -1,9 +1,9 @@
 import React from 'react'
-import FollowButton from '../../components/FollowButton/FollowButton'
+import FollowButton from '../../components/Buttons/FollowButton/FollowButton'
 import './Profile.css'
 import Countdown from '../../components/Counter/Countdown'
 import CardProfile from '../../components/CardProfile/CardProfile'
-import Calendar from '../../components/DatePicker/DatePicker'
+import Calendar from '../../components/Calendar/Calendar'
 
 
 

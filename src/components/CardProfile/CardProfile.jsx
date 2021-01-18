@@ -1,4 +1,5 @@
 import React from 'react';
+import './CardProfile.css'
 
 const ImgUpload =({
   onChange,

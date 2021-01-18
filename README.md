@@ -57,3 +57,6 @@ npm i bootstrap-icons
 
 addtrip
 react-hook-form
+
+confetti
+react-dom-confetti

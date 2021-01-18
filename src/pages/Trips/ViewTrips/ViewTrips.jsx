@@ -1,7 +1,7 @@
 import React from 'react';
 import ItineraryCards from '../../../components/ItineraryCards/ItineraryCards'
 import './ViewTrips.css'
-import Calendar from '../../../components/DatePicker/DatePicker'
+import Calendar from '../../../components/Calendar/Calendar'
 import Countdown from '../../../components/Counter/Countdown'
 
 const ViewTrips=({user})=> {

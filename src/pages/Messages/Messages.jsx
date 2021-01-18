@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DiscussionForum from '../../components/DiscussionForum/DiscussionForum'
+import DiscussionForum from '../../components/DiscussionForum/DiscussionForum/DiscussionForum'
 
 
 
