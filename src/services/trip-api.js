@@ -9,3 +9,9 @@ export function create(trip) {
     }, {mode: "cors"})
     .then(res => res.json());
   }
+
+export function getAll() {
+    return fetch ('/vanillatrips', {
+        mode: 'cors'
+    }).then(res => res.json())
+}  
