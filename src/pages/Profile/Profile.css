@@ -1,13 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-div.profile{
-    font-family: 'Open Sans Condensed', sans-serif;
+label.cardProfile {
+    line-height: 3;
+    text-align: left;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+  } 
+div.userProfile{
+   display: flex;
+   justify-content: space-between;
+   margin-right: 30px;
+   margin-top: 30px;
+   
 }
-
+div.profilePic{
+    margin-left: 30px; 
+    
+}
+img.userProfile{
+    border-radius: 50%;
+    box-shadow: #cea726 2px 5px;
+    height: 250px;
+    width: 300px;
+}
+div.follow{
+    margin-left: 50px;
+}
 h1.profile{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 50px;
+
+}
+h3.profile{
     text-align: center;
 }
-.profilePicture{
-    height: 50px;
-    width: 50px;
+
+h2.userProfile{
+    text-align: center;
+}
+div.sc-gsTCUz.dvNrgs{
+    background-color:#cea726 ;
+}
+input#file-upload-button{
+ background: #cea726;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+}
+
+input#file-upload-button:hover {
+  background: #165a22;
+}
+
+input#file-upload-button:active {
+  transition: 0.3s all;
+  transform: translateY(3px);
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
+@media screen and (max-width: 600px){
+    html{
+        width: 100%;
+    }
+    div.profile {
+        width: 100%;
+    }
+    div.countdownProfile{
+        width: 100%;
+    }
+    img.profileImg{
+        width: 100%;
+    }
+    div.profilePicture{
+        width: 50%;
+    }
 }
