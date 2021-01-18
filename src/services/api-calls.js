@@ -1,7 +1,6 @@
 import tokenService from "./tokenService";
 
 export function getPOIfromBackend(formData) {
-  console.log(formData);
   return fetch("/pickles/search",
     {
       method: "POST",
