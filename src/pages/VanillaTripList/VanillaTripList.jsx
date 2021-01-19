@@ -20,9 +20,15 @@ const VanillaTripList = (props) => {
 
 
     return ( 
+<>
+      <div >
+         { console.log(props)}
+          <VanillaTripShowCard 
 
-      <>
-       <h1>Trip list</h1>
+            
+          />
+        
+      </div>
     </>
 
      );

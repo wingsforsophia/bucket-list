@@ -5,11 +5,11 @@ const tripsCtrl = require('../controllers/trips')
 //protected routes
 router.use(require('../config/auth'));
 
-router.get('/', checkAuth, tripsCtrl.index)
-router.get('/:id', checkAuth, tripsCtrl.show)
-router.post('/', checkAuth, tripsCtrl.create)
-router.put('/:id', checkAuth, tripsCtrl.update)
-router.delete('/:id', checkAuth, tripsCtrl.delete)
+router.get('/', tripsCtrl.index)
+router.get('/:id', tripsCtrl.show)
+router.post('/', tripsCtrl.create)
+router.put('/:id', tripsCtrl.update)
+router.delete('/:id', tripsCtrl.delete)
 
 function checkAuth(req, res, next) {
     if (req.user) return next();
