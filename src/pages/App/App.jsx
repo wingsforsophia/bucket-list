@@ -16,6 +16,8 @@ import DiscussionPost from '../Messages/DiscussionPost/DiscussionPosts'
 import Destinations from '../Messages/Destinations/Destinations'
 import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
 import Favorite from '../../pages/Favorites/Favorite'
+import VanillaAddTrip from '../VanillaAddTrip/VanillaAddTrip'
+import VanillaTripList from '../VanillaTripList/VanillaTripList'
 
 class App extends Component {
   state = {
@@ -114,6 +116,26 @@ class App extends Component {
             />  
             <Route exact path='/favorites' render={()=><Favorite user={this.state.user}/>}
             />  
+
+           <Route 
+             exact path='/vanilla'
+             render={() => 
+              authService.getUser() ?
+              <VanillaAddTrip 
+                user={this.state.user}  
+              />
+              : 
+              <Redirect to='/login'/>
+            }
+          />
+            <Route 
+              exact path='/vanillatrips'
+              render={() => 
+                <VanillaTripList
+                  user={this.state.user}
+                />
+              }
+            />
 
       </>
     );

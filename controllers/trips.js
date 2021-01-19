@@ -10,6 +10,7 @@ module.exports = {
 
 function index(req, res) {
   Trip.find({})
+    .populate("addedBy")
     .then((trips) => {
       res.json(trips);
     })
@@ -20,7 +21,7 @@ function index(req, res) {
 
 function show(req, res) {
   Trip.findById(req.params.id)
-  .populate('itinerary')
+    .populate("itinerary")
     .then((trip) => {
       res.json(trip);
     })
@@ -30,7 +31,7 @@ function show(req, res) {
 }
 
 function create(req, res) {
-//   req.body.addedBy = req.user._id (add this in later to attach user to the trip object)
+  req.body.addedBy = req.user._id;
   Trip.create(req.body)
     .then((trip) => {
       res.json(trip);
@@ -41,11 +42,13 @@ function create(req, res) {
 }
 
 function update(req, res) {
-    Trip.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  Trip.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((trip) => {
-        res.json(trip)
+      res.json(trip);
     })
-    .catch(err => {res.json(err)})
+    .catch((err) => {
+      res.json(err);
+    });
 }
 
 function deleteTrip(req, res) {
