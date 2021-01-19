@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react'
 import * as tripAPI from '../../services/trip-api'
-
+import VanillaTripShowCard from '../../components/VanillaTripShowCard/VanillaTripShowCard'
 
 const VanillaTripList = (props) => {
     
