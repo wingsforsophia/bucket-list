@@ -18,6 +18,7 @@ import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
 import Favorite from '../../pages/Favorites/Favorite'
 import VanillaAddTrip from '../VanillaAddTrip/VanillaAddTrip'
 import VanillaTripList from '../VanillaTripList/VanillaTripList'
+import POIDetails from '../POIDetails/POIDetails'
 
 class App extends Component {
   state = {
@@ -135,6 +136,10 @@ class App extends Component {
                   user={this.state.user}
                 />
               }
+            />
+            <Route 
+            exact path = '/search/:id'
+            render={({match}) => <POIDetails match={match}/>}
             />
 
       </>
