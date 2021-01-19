@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function VanillaTripCard({ user, trip, handleDeleteTrip }) {
     return(
-        <>
+
+<>
         <div className=" card">
             <div className="card-image waves-effect waves-block waves-light">
                 <img alt="trip" className="activator" src="https://www.cebodtelecom.com/wp-content/uploads/2014/09/related_post_no_available_image.png" onClick={()=> {}}/>
@@ -42,5 +43,4 @@ function VanillaTripCard({ user, trip, handleDeleteTrip }) {
     </>
     ) 
 }
-
 export default VanillaTripCard;
