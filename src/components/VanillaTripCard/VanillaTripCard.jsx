@@ -33,7 +33,7 @@ function VanillaTripCard({ user, trip, handleDeleteTrip }) {
                                 state: {trip}
                             }}
                         ><i className="material-icons left">build</i>
-                            Edit TV Show
+                            Edit Trip
                         </Link>
                     </>
                 }
