@@ -1,7 +1,6 @@
 import React, { useState, useEffect }  from 'react'
 import * as tripAPI from '../../services/trip-api'
-import VanillaTripCard from '../../components/VanillaTripCard/VanillaTripCard'
-import '../VanillaTripList/VanillaTripList.css'
+import VanillaTripShowCard from '../../components/VanillaTripShowCard/VanillaTripShowCard'
 
 const VanillaTripList = (props) => {
     
@@ -23,16 +22,7 @@ const VanillaTripList = (props) => {
     return ( 
 
       <>
-      <div className='TripList-grid'>
-        {trips.map(trip =>
-          <VanillaTripCard 
-            key={trip._id}
-            trip={trip}
-            user={props.user}
-            handleDeleteTrip={handleDeleteTrip}
-          />
-        )}
-      </div>
+       <h1>Trip list</h1>
     </>
 
      );
