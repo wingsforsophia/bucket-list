@@ -4,6 +4,7 @@ const apiCtrl = require("../controllers/api");
 
 /*---------- Public Routes ----------*/
 router.post('/search', apiCtrl.searchPlaces)
+router.post('/details', apiCtrl.searchDetails)
 
 
 /*---------- Protected Routes ----------*/
