@@ -11,14 +11,17 @@ import Profile from "../Profile/Profile"
 import ViewTrips from '../Trips/ViewTrips/ViewTrips'
 import AddTrips from '../Trips/AddTrips/AddTrips'
 import Messages from '../Messages/Messages'
+import POISearch from "../POISearch/POISearch";
 import DiscussionPost from '../Messages/DiscussionPost/DiscussionPosts'
 import Destinations from '../Messages/Destinations/Destinations'
 import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
 import Favorite from '../../pages/Favorites/Favorite'
+import Messenger from '../../pages/SocketMessenger/Messenger'
 
 class App extends Component {
   state = {
     user: authService.getUser(),
+    // chat: authService.getChat()
   };
 
   handleLogout = () => {
@@ -95,6 +98,10 @@ class App extends Component {
             exact path='/discussion'
             render={() => <Messages user={this.state.user} />}
             />
+            <Route 
+            exact path='/search'
+            render={() => <POISearch />}
+            />
             <Route
             exact path='/discussion/:name'
             render={({match})=>
@@ -109,6 +116,9 @@ class App extends Component {
             />  
             <Route exact path='/favorites' render={()=><Favorite user={this.state.user}/>}
             />  
+            <Route exact path='/messenger'
+            render={({location})=><Messenger location={location} user={this.state.user}/>}
+            />
 
       </>
     );

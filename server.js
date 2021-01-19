@@ -5,6 +5,11 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const dotenv = require('dotenv')
 const fileUpload = require('express-fileupload');
+const http = require('http').Server(app);
+const io = require('./io');
+
+
+
 
 
 require('dotenv').config();
@@ -12,6 +17,10 @@ require('./config/database');
 
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const tripsRouter = require('./routes/trips')
+const itemsRouter = require('./routes/items')
+const apiRouter = require('./routes/api')
+const chatRouter = require('./routes/chat');
 
 const cors = require('cors')
 
@@ -27,6 +36,10 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
+app.use('/trips', tripsRouter);
+app.use('/trips', itemsRouter);
+app.use('/pickles', apiRouter);
+app.use('/messenger', chatRouter);
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

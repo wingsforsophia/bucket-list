@@ -1,47 +1,49 @@
-import React, { Component } from 'react';
-import mapboxgl from 'mapbox-gl'
-import './Home.css'
+import React, { useState, useRef, useCallback } from "react";
+import MapGL from "react-map-gl";
+import Geocoder from "react-map-gl-geocoder";
 
-mapboxgl.accessToken = `${process.env.REACT_APP_MAP_ACCESS_TOKEN}`;
+const MAPBOX_TOKEN = `${process.env.REACT_APP_MAP_ACCESS_TOKEN}`;
 
-
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lng: 5,
-      lat: 34,
-      zoom: 2,
-    };
-  }
-  componentDidMount() {
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: "mapbox://styles/mapbox/satellite-streets-v11",
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom,
-    });
-    map.on("move", () => {
-      this.setState({
-        lng: map.getCenter().lng.toFixed(4),
-        lat: map.getCenter().lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2),
+const Home = () => {
+  const [viewport, setViewport] = useState({
+    latitude: 41.8781,
+    longitude: -87.6298,
+    zoom: 8,
+  });
+  const mapRef = useRef();
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    []
+  );
+  const handleGeocoderViewportChange = useCallback(
+    (newViewport) => {
+      const geocoderDefaultOverrides = { transitionDuration: 1000 };
+      return handleViewportChange({
+        ...newViewport,
+        ...geocoderDefaultOverrides,
       });
-    });
-  }
-  render() {
-    return (
-        <div>   
-            <div className='sidebarStyle'>
-            <div>
-                Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
-                {this.state.zoom}
-            </div>
-            </div>
-            <div ref={(el) => (this.mapContainer = el)} className='mapContainer' />
-        </div>
-    );
-  }
-}
- 
+    },
+    [handleViewportChange]
+  );
+  return (
+    <div style={{ height: "100vh", color: 'whitesmoke', fontSize: '25'}}>
+      <MapGL
+        ref={mapRef}
+        {...viewport}
+        width='100%'
+        height='100%'
+        mapStyle='mapbox://styles/mapbox/satellite-streets-v11'
+        onViewportChange={handleViewportChange}
+        mapboxApiAccessToken={MAPBOX_TOKEN}
+      >
+        <Geocoder
+          mapRef={mapRef}
+          onViewportChange={handleGeocoderViewportChange}
+          mapboxApiAccessToken={MAPBOX_TOKEN}
+          position='top-left'
+        />
+      </MapGL>
+    </div>
+  );
+};
 export default Home;

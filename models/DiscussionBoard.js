@@ -8,11 +8,11 @@ const replySchema = new Schema ({
 
 })
 
-const messageBoardSchema = new Schema ({
+const discussionBoardSchema = new Schema ({
     postedBy: String, 
     avatar: String, 
     title: String,
     replies: [replySchema]
 })
 
-module.exports = mongoose.model('MessageBoard', messageBoardSchema)
+module.exports = mongoose.model('DiscussionBoard', discussionBoardSchema)

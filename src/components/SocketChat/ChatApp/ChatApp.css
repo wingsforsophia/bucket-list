@@ -1,0 +1,11 @@
+.chat-app {
+	height: calc(100vh - 84px);
+	overflow: hidden;
+	margin-top: -1px;
+	display: flex;
+	background: #ecedf0;
+}
+
+.chat-area {
+	width: calc(100vw - 310px);
+}

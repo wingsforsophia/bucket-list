@@ -42,8 +42,13 @@ const NavBar = ({ user, handleLogout }) => {
                   </Link>
                 </li>
                 <li className='nav-item'>
-                  <Link to='/discussion' className='nav-link'>
-                    Message Board
+                <Link to='/messenger' className='nav-link'>
+                    Chat
+                  </Link> 
+                </li>
+                <li className='nav-item'>
+                  <Link to='/search' className='nav-link'>
+                    Search for Points of interest 
                   </Link>
                 </li>
                 <li className='nav-item dropdown'>
@@ -72,9 +77,15 @@ const NavBar = ({ user, handleLogout }) => {
                 </li>
                 <li className='nav-item logout'>
                   <Link to='/users' className='nav-link'>
-                    Users
+                    Active Users
                   </Link>
                 </li>
+                <li className='nav-item logout'>
+                <Link to='/discussion' className='nav-link'>
+                    Discussion Board
+                  </Link>
+                </li>
+                
                 <Link to='/' className='nav-link logout' onClick={handleLogout}>
                   Log Out
                 </Link>
