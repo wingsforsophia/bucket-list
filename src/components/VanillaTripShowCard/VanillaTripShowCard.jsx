@@ -27,7 +27,7 @@ function TripShowCard({ user, trip, handleDeleteTrip}) {
   </Card.Body>
 </Card>
       :
-      <h1>you have no trips</h1>}
+      <h1 hidden >you have no trips</h1>}
         </>
     ) 
 }
