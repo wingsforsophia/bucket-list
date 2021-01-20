@@ -22,7 +22,7 @@ function VanillaAddTrip(props) {
 
     async function handleAddTrip(newTripData) {
         await tripAPI.create(newTripData)
-        history.push('/vanillatrip')
+        history.push('/vanillatrips')
     }
 
     useEffect(() => {

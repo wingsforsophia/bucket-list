@@ -37,9 +37,9 @@ function create(req, res) {
     .then((trip) => {
       User.findById(req.body.addedBy)
       .then((user) => {
-        console.log(user)
         user.trips.push(trip._id);
         user.save()
+        // .populate('trips')
         .then((trip) => {
           res.json(trip);
 

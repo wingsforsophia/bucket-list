@@ -22,12 +22,14 @@ const VanillaTripList = (props) => {
     return ( 
 <>
       <div >
-         { console.log(props)}
+          {trips.map(trip =>
           <VanillaTripShowCard 
-
-            
+            key={trip._id}
+            trip={trip}
+            user={props.user}
+            handleDeleteTrip={handleDeleteTrip}
           />
-        
+          )}
       </div>
     </>
 

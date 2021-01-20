@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
-function TVShowCard() {
+function TripShowCard({ user, trip, handleDeleteTrip}) {
+  // console.log(props)
     return(
         <>
         <Card style={{ width: '18rem' }}>
   <Card.Body>
-    <Card.Title>Card Title</Card.Title>
+    <Card.Title className="mb-2 text-muted">Trip Name: </Card.Title>
     <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
     <Card.Text>
       Some quick example text to build on the card title and make up the bulk of
@@ -22,4 +23,4 @@ function TVShowCard() {
     ) 
 }
 
-export default TVShowCard;
+export default TripShowCard;
