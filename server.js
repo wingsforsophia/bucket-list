@@ -5,10 +5,10 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const dotenv = require('dotenv')
 const fileUpload = require('express-fileupload');
+
 const http = require('http').Server(app);
 const io = require('./io');
-
-
+io.attach(http);
 
 
 

@@ -17,18 +17,15 @@ const Message = ({name, user, messages} ) => {
           <h1> Conversation </h1>
           <div>
             <ul>
-              {messages.map((message, i) => (
-                <li
-                  key={i}
-                  className={`message-item ${
-                    message.sentByCurrentUser ? "my-message" : "received-message"
-                  }`}
+              {/* {messages.map((message, idx) => ( */}
+                {/* <li
+                  key={idx}
                 >
                   {user}: 
                   {message}
                   
-                </li>
-              ))}
+                </li> */}
+              {/* ))} */}
             </ul>
          
 </div>

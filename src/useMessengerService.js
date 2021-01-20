@@ -8,13 +8,14 @@ const newMessageEvent = "receiveMessage";
 const useMessengerService = (chatbox) => {
   const [messages, setMessage] = useState([]);
   const socketRef = useRef();
-
   
+  const d = new Date()
+ 
   useEffect(() => {
     let user = authService.getUser()
 
     socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
-      query: { chatbox: chatbox, user: user.name },
+      query: { chatbox: chatbox, user: user.name, timestamp: true, avatar: user._avatar, user: user._id},
     });
 
     socketRef.current.on(newMessageEvent, (message) => {
@@ -24,6 +25,11 @@ const useMessengerService = (chatbox) => {
       };
       setMessage((messages) => [...messages, incomingMessage]);
     });
+
+    socketRef.current.on('disconnect', (data) => {
+      console.log('Unable to connect, please check connection');
+    });
+
 
     return () => {
       socketRef.current.disconnect();
@@ -35,7 +41,11 @@ const useMessengerService = (chatbox) => {
     socketRef.current.emit(newMessageEvent, {
       body: messageBody,
       senderId: socketRef.current.id,
-      name: user.name
+      userId: user._id,
+      avatar: user._avatar,
+      name: user.name,
+      timestamp: d.toUTCString()
+      
     });
   };
 
