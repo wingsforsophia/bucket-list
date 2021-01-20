@@ -1,4 +1,5 @@
 const Trip = require("../models/trip");
+const User = require('../models/user')
 
 module.exports = {
   index,
@@ -34,7 +35,16 @@ function create(req, res) {
   req.body.addedBy = req.user._id;
   Trip.create(req.body)
     .then((trip) => {
-      res.json(trip);
+      User.findById(req.body.addedBy)
+      .then((user) => {
+        console.log(user)
+        user.trips.push(trip._id);
+        user.save()
+        .then((trip) => {
+          res.json(trip);
+
+        })
+      })
     })
     .catch((err) => {
       res.json(err);
