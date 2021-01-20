@@ -4,9 +4,14 @@ import Card from 'react-bootstrap/Card'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TripShowCard({ user, trip, handleDeleteTrip}) {
-  console.log(trip)
-    return(
+  console.log("vanilla trip card-trip", trip)
+  console.log("vanilla trip card-user", user)
+   
+  
+  return(
+        
         <>
+        {trip.addedBy._id === user._id ? 
         <Card style={{ width: '18rem' }}>
   <Card.Body>
     <Card.Title className="mb-2 text-muted">Trip Name: {trip.tripName}</Card.Title>
@@ -21,6 +26,8 @@ function TripShowCard({ user, trip, handleDeleteTrip}) {
     <Card.Link href="#">View Itinerary</Card.Link>
   </Card.Body>
 </Card>
+      :
+      <h1>you have no trips</h1>}
         </>
     ) 
 }

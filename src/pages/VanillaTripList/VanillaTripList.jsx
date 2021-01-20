@@ -1,8 +1,10 @@
 import React, { useState, useEffect }  from 'react'
 import * as tripAPI from '../../services/trip-api'
 import VanillaTripShowCard from '../../components/VanillaTripShowCard/VanillaTripShowCard'
+// import user from '../../../models/user'
 
 const VanillaTripList = (props) => {
+  console.log(props)
     
     const [trips, setTrips]= useState([])
 
@@ -20,7 +22,9 @@ const VanillaTripList = (props) => {
 
 
     return ( 
-<>
+
+<> 
+      
       <div >
           {trips.map(trip =>
           <VanillaTripShowCard 
