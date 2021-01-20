@@ -15,7 +15,7 @@ function TripShowCard({ user, trip, handleDeleteTrip}) {
     <Card.Subtitle className="mb-2 text-muted">Country: {trip.country}</Card.Subtitle>
     <Card.Text className="mb-2 text-muted"> Departing from: {trip.departing}</Card.Text>
     <Card.Text className="mb-2 text-muted"> Arriving in: {trip.arriving}</Card.Text>
-    <Card.Link href="#" type="submit" onClick={() => handleDeleteTrip(trip._id)}>Delete Trip</Card.Link>
+    <Card.Link href="/vanillatrips" type="submit" onClick={() => handleDeleteTrip(trip._id)}>Delete Trip</Card.Link>
     <Card.Link href="#">Edit Trip</Card.Link>
     <Card.Link href="#">Add to Itinerary</Card.Link>
     <Card.Link href="#">View Itinerary</Card.Link>
