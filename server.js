@@ -16,6 +16,7 @@ const tripsRouter = require('./routes/trips')
 const itemsRouter = require('./routes/items')
 const apiRouter = require('./routes/api')
 const discussionRouter = require('./routes/discussionBoard')
+const messageBoardRouter = require('./routes/messageBoard')
 
 const cors = require('cors')
 
@@ -35,6 +36,7 @@ app.use('/trips', tripsRouter);
 app.use('/trips', itemsRouter);
 app.use('/pickles', apiRouter);
 app.use('/discussion/:name', discussionRouter)
+app.use('/messageBoard', messageBoardRouter)
 
 
 app.get('/*', function(req, res) {
