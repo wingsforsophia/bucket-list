@@ -18,10 +18,11 @@ import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
 import Favorite from '../../pages/Favorites/Favorite'
 import Messenger from '../../pages/SocketMessenger/Messenger'
 
+
 class App extends Component {
   state = {
     user: authService.getUser(),
-    // chat: authService.getChat()
+   
   };
 
   handleLogout = () => {
@@ -36,6 +37,7 @@ class App extends Component {
 
   render() {
     const { user } = this.state
+    
     return (
       <>
         <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
@@ -117,7 +119,7 @@ class App extends Component {
             <Route exact path='/favorites' render={()=><Favorite user={this.state.user}/>}
             />  
             <Route exact path='/messenger'
-            render={({location})=><Messenger location={location} user={this.state.user}/>}
+            render={()=><Messenger  user={this.state.user} chatMessages={this.state.chat}/>}
             />
 
       </>

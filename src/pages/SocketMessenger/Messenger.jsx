@@ -7,9 +7,7 @@ import InfoBar from '../../components/SocketChat/InfoBar/InfoBar';
 import './Messenger.css';
 
 
-
-let socket;
-const Messenger = ({ user, chatbox }) => {
+const Messenger = ({ chat, user, chatbox }) => {
   const [name, setName] = useState(user);
   const [room, setRoom] = ('chat');
   const {messages, sendMessage} = useMessengerService(chatbox);
@@ -21,11 +19,6 @@ const Messenger = ({ user, chatbox }) => {
     
   }
 
-  // resetChat = (chat)=>{
-	// 	return this.addChat(chat, true)
-	// }
-
-  console.log(setNewMessages)
 
   const handleSendMessage = () => {
     sendMessage(aMessage)
@@ -34,35 +27,19 @@ const Messenger = ({ user, chatbox }) => {
  
   
   
-  console.log(messages.ref)
-  console.log(aMessage)
-  console.log(chatbox)
+  console.log(sendMessage)
+ console.log(chat)
+
 
   return (
-
-    <div>
   
-    <h1>Messenger: {user.name} <i>is online</i></h1>
-    <InfoBar room={room} />
+    <>
+    <div>
+     <h1>Messenger: {user.name} <i>is online </i></h1>
+   <InfoBar room={room} />
     <br/>
-    {/* <ul>
-          {messages.map((message, i) => (
-            <li
-              key={i}
-              className={`message-item ${
-                message.sentByCurrentUser ? "my-message" : "received-message"
-              }`}
-            >
-              {messages.name}: 
-              {messages.body}
-              
-            </li>
-          ))}
-        </ul> */}
+    <Messages messages={chat}   name={user} idx={user._id}/>  
 
-     <Messages messages={messages}  name={user} idx={user._id}/>
-    
-    
     
     <br/>
     <input type="text" id="avatar" hidden name="avatar" value= {user.avatar }/>
@@ -74,7 +51,8 @@ const Messenger = ({ user, chatbox }) => {
 
 
 </div>
-  );
+</>
+ );
   
 }
 

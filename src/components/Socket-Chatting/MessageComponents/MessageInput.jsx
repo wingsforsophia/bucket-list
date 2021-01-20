@@ -66,6 +66,7 @@ export default class MessageInput extends Component {
 	render() {
 		const { message } = this.state
 		return (
+			<section>
 			<div className="message-input">
 				<form 
 					onSubmit={ this.handleSubmit }
@@ -82,7 +83,7 @@ export default class MessageInput extends Component {
 						onKeyUp = { e => { e.keyCode !== 13 && this.sendTyping() } }
 						onChange = {
 							({target})=>{
-								this.setState({message:target.value})
+						</section>		this.setState({message:target.value})
 							}
 						}
 						/>

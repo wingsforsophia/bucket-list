@@ -13,9 +13,10 @@ const useMessengerService = (chatbox) => {
  
   useEffect(() => {
     let user = authService.getUser()
+    
 
     socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
-      query: { chatbox: chatbox, user: [user.name, user._avatar, user._id],timestamp: true},
+      query: { user: [user.name, user._avatar, user._id],timestamp: true},
     });
 
     socketRef.current.on(newMessageEvent, (message) => {
@@ -36,11 +37,12 @@ const useMessengerService = (chatbox) => {
     };
   }, [chatbox]);
 
+
+  
   const sendMessage = (messageBody) => {
     let user = authService.getUser()
     socketRef.current.emit(newMessageEvent, {
       body: messageBody,
-      senderId: socketRef.current.id,
       userId: user._id,
       avatar: user._avatar,
       name: user.name,

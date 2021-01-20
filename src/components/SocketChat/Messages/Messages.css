@@ -1,31 +1,41 @@
 .messageBox {
     background: #F3F3F3;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 10px 20px;
     color: white;
     display: inline-block;
     max-width: 80%;
+    box-shadow: gold ;
   }
   
   .messageText {
     width: 100%;
     letter-spacing: 0;
     float: left;
-    font-size: 1.1em;
+    font-size: 1.5em;
     word-wrap: break-word;
+    
   }
   
   .messageText img {
     vertical-align: middle;
+    text-align: center;
+    border-bottom: white 2px solid;
   }
-  
+  .messageDate{
+    color:#cea726 ;
+    font-size: .85em;
+  }
   .messageContainer {
     display: flex;
     justify-content: flex-end;
-    padding: 0 5%;
+    padding: 5%;
     margin-top: 3px;
   }
-  
+  .messengerContainer{
+    border-bottom: #cea726  5px solid;
+    border-top: #cea726 5px solid;
+  }
   .sentText {
     display: flex;
     align-items: center;
@@ -34,12 +44,10 @@
     letter-spacing: 0.3px;
   }
   
-  .pl-10 {
-    padding-left: 10px;
-  }
-  
+ 
   .pr-10 {
-    padding-right: 10px;
+    padding: 20px;
+    color: white;
   }
   
   .justifyStart {
