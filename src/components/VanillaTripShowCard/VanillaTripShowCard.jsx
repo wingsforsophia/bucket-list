@@ -4,19 +4,20 @@ import Card from 'react-bootstrap/Card'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TripShowCard({ user, trip, handleDeleteTrip}) {
-  // console.log(props)
+  console.log(trip)
     return(
         <>
         <Card style={{ width: '18rem' }}>
   <Card.Body>
-    <Card.Title className="mb-2 text-muted">Trip Name: </Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Card.Link href="#">Card Link</Card.Link>
-    <Card.Link href="#">Another Link</Card.Link>
+    <Card.Title className="mb-2 text-muted">Trip Name: {trip.tripName}</Card.Title>
+    <Card.Subtitle className="mb-2 text-muted">Dates: {trip.startDate} - {trip.endDate}</Card.Subtitle>
+    <Card.Subtitle className="mb-2 text-muted">City: {trip.city}</Card.Subtitle>
+    <Card.Subtitle className="mb-2 text-muted">Country: {trip.country}</Card.Subtitle>
+    <Card.Text className="mb-2 text-muted"> Departing from: {trip.departing}</Card.Text>
+    <Card.Text className="mb-2 text-muted"> Arriving in: {trip.arriving}</Card.Text>
+    <Card.Link href="#">Edit Trip</Card.Link>
+    <Card.Link href="#">Add to Itinerary</Card.Link>
+    <Card.Link href="#">View Itinerary</Card.Link>
   </Card.Body>
 </Card>
         </>
