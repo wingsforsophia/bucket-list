@@ -34,7 +34,7 @@ app.use('/api/users', userRouter);
 app.use('/trips', tripsRouter);
 app.use('/trips', itemsRouter);
 app.use('/pickles', apiRouter);
-app.use('/discussion', discussionRouter)
+app.use('/discussion/:name', discussionRouter)
 
 
 app.get('/*', function(req, res) {
