@@ -1,4 +1,3 @@
-import { colors } from 'material-ui/styles';
 import React, { Component } from 'react';
 import {getDetailsFromBackend} from '../../services/api-calls'
 
@@ -15,13 +14,20 @@ class POIDetails extends Component {
   async componentDidMount() {
     const poiDetails = await getDetailsFromBackend(this.props.match.params.id)
     console.log(poiDetails,'this is poi details')
-    this.setState({ poiDetails: poiDetails.results });
+    this.setState({ poiDetails: poiDetails.results[0] });
   }
 
   render() {
+    
     return ( 
     <>
-        <h1>Details will render here</h1>
+  
+      {this.state.poiDetails ? (
+        <h1 style={{color:'wheat'}}>{this.state.poiDetails.name}</h1>
+      ) : (
+        <p>Loading...</p>
+      )
+    }
     </>
     );
   }
