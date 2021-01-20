@@ -15,7 +15,7 @@ const useMessengerService = (chatbox) => {
     let user = authService.getUser()
 
     socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
-      query: { chatbox: chatbox, user: user.name, timestamp: true, avatar: user._avatar, user: user._id},
+      query: { chatbox: chatbox, user: [user.name, user._avatar, user._id],timestamp: true},
     });
 
     socketRef.current.on(newMessageEvent, (message) => {
