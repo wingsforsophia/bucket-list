@@ -149,7 +149,9 @@ class App extends Component {
             <Route 
               exact path='/additem'
               render={() => 
-                <AddItem />
+                <AddItem 
+                 user={this.state.user}
+                />
               }
             />
             <Route 

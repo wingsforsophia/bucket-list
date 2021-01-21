@@ -4,9 +4,7 @@ import Card from 'react-bootstrap/Card'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TripShowCard({ user, trip, handleDeleteTrip}) {
-  console.log("vanilla trip card-trip", trip)
-  console.log("vanilla trip card-user", user)
-   
+ 
   
   return(
         
@@ -25,7 +23,10 @@ function TripShowCard({ user, trip, handleDeleteTrip}) {
       pathname: '/edittrip',
       state: {trip}
     }}  >Edit Trip</Link><br />
-    <Card.Link href="/additem">Add to Itinerary</Card.Link><br />
+    <Link to={{ 
+      pathname: '/additem',
+      state: {trip}
+    }}  >Add Itinerary Item</Link><br />
     <Card.Link href="#">View Itinerary</Card.Link>
   </Card.Body>
 </Card>

@@ -16,9 +16,9 @@ function AddItem(props) {
     time: '',
     location: '',
     notes: '',
-    completed: false,
-    tickets: false, 
-    reservations: false   
+    // completed: false,
+    // tickets: false, 
+    // reservations: false   
   })
 
   async function handleAddItem(newItemData) {
