@@ -14,9 +14,9 @@ function TripShowCard({ user, trip, handleDeleteTrip}) {
         {trip.addedBy._id === user._id ? 
         <Card style={{ width: '18rem' }}>
   <Card.Body>
-    <Card.Title className="mb-2 text-muted">Trip Name: {trip.tripName}</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Dates: {trip.startDate} - {trip.endDate}</Card.Subtitle>
-    <Card.Subtitle className="mb-2 text-muted">City: {trip.city}</Card.Subtitle>
+    <Card.Title className="mb-2 text-muted">Trip Name: {trip.tripName}</Card.Title><br />
+    <Card.Subtitle className="mb-2 text-muted">Dates: {trip.startDate} - {trip.endDate}</Card.Subtitle><br />
+    <Card.Subtitle className="mb-3 text-muted">City: {trip.city}</Card.Subtitle>
     <Card.Subtitle className="mb-2 text-muted">Country: {trip.country}</Card.Subtitle>
     <Card.Text className="mb-2 text-muted"> Departing from: {trip.departing}</Card.Text>
     <Card.Text className="mb-2 text-muted"> Arriving in: {trip.arriving}</Card.Text>
