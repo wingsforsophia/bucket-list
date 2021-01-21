@@ -48,25 +48,31 @@ function AddItem(props) {
                 <div className="row">
                   <div className="input-field col s12">
                     <input name="time" id="time" type="text" value={state.time} onChange={handleChange}/>
-                    <label htmlFor="departing">Time</label>
+                    <label htmlFor="time">Time</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12">
-                    <input name="arriving" id="arriving" type="text"  value={state.arriving} onChange={handleChange}/>
-                    <label htmlFor="arriving">Arriving at (ex. CDG)</label>
+                    <input name="location" id="location" type=""  value={state.location} onChange={handleChange}/>
+                    <label htmlFor="location">Location</label>
+                  </div>
+                </div>
+                {/* <div className="row">
+                  <div className="input-field col s12">
+                    <input name="completed" id="completed" type="checkbox" value={state.completed} onChange={handleChange}/>
+                    <label htmlFor="city">Completed?</label>
+                  </div>
+                </div> */}
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input name="tickets" id="tickets" type="checkbox"  value={state.tickets} onChange={handleChange}/>
+                    <label htmlFor="tickets">Tickets needed?</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12">
-                    <input name="city" id="city" type="text" value={state.city} onChange={handleChange}/>
-                    <label htmlFor="city">City</label>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <input name="country" id="country" type="text"  value={state.country} onChange={handleChange}/>
-                    <label htmlFor="country">Country</label>
+                    <input name="reservations" id="reservations" type="checkbox"  value={state.reservations} onChange={handleChange}/>
+                    <label htmlFor="reservations">Reservations needed?</label>
                   </div>
                 </div>
                 <button
