@@ -27,7 +27,11 @@ function TripShowCard({ user, trip, handleDeleteTrip}) {
       pathname: '/additem',
       state: {trip}
     }}  >Add Itinerary Item</Link><br />
-    <Card.Link href="/items">View Itinerary</Card.Link>
+     <Link to={{ 
+      pathname: '/items',
+      state: {trip}
+    }}  >View Itinerary</Link><br />
+    
   </Card.Body>
 </Card>
       :
