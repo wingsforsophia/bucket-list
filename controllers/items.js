@@ -9,6 +9,7 @@ module.exports = {
 };
 
 function create(req, res) {
+  req.body.addedBy = req.user._id;
   Item.create(req.body).then((item) => {
     Trip.findById(req.params.id).then((trip) => {
       trip.itinerary.push(item._id);
