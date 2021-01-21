@@ -20,15 +20,25 @@ class POIDetails extends Component {
   render() {
     
     return ( 
-    <>
+    <div>
   
       {this.state.poiDetails ? (
-        <h1 style={{color:'wheat'}}>{this.state.poiDetails.name}</h1>
+        <div>
+        <h1 style={{color:'wheat', textAlign:'center'}}>{this.state.poiDetails.name}</h1>
+        <h2 style={{textAlign:'center'}}>{this.state.poiDetails.snippet}</h2>
+        <h3>Score: {this.state.poiDetails.score}/10</h3>
+        {/* {this.state.poiDetails.images.map((i) => 
+        <img src={i.sizes.medium.url} alt=""/>
+        )} */}
+        <button>Add To Favorites</button>
+        </div>
       ) : (
+        <div>
         <p>Loading...</p>
+        </div>
       )
     }
-    </>
+    </div>
     );
   }
 }
