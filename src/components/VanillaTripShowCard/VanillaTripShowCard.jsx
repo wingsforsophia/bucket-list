@@ -4,29 +4,34 @@ import Card from 'react-bootstrap/Card'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TripShowCard({ user, trip, handleDeleteTrip}) {
-  console.log("vanilla trip card-trip", trip)
-  console.log("vanilla trip card-user", user)
-   
+ 
   
   return(
         
         <>
         {trip.addedBy._id === user._id ? 
-        <Card style={{ width: '18rem' }}>
+        <Card style={{width: '18rem', height: '25rem'}}>
   <Card.Body>
-    <Card.Title className="mb-2 text-muted">Trip Name: {trip.tripName}</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Dates: {trip.startDate} - {trip.endDate}</Card.Subtitle>
-    <Card.Subtitle className="mb-2 text-muted">City: {trip.city}</Card.Subtitle>
+    <Card.Title className="mb-2 text-muted">Trip Name: {trip.tripName}</Card.Title><br />
+    <Card.Subtitle className="mb-2 text-muted">Dates: {trip.startDate} - {trip.endDate}</Card.Subtitle><br />
+    <Card.Subtitle className="mb-3 text-muted">City: {trip.city}</Card.Subtitle>
     <Card.Subtitle className="mb-2 text-muted">Country: {trip.country}</Card.Subtitle>
     <Card.Text className="mb-2 text-muted"> Departing from: {trip.departing}</Card.Text>
     <Card.Text className="mb-2 text-muted"> Arriving in: {trip.arriving}</Card.Text>
-    <Card.Link href="/vanillatrips" type="submit" onClick={() => handleDeleteTrip(trip._id)}>Delete Trip</Card.Link>
+    <Card.Link href="/vanillatrips" type="submit" onClick={() => handleDeleteTrip(trip._id)}>Delete Trip</Card.Link><br />
     <Link to={{ 
       pathname: '/edittrip',
       state: {trip}
-    }}  >Edit Trip</Link>
-    <Card.Link href="#">Add to Itinerary</Card.Link>
-    <Card.Link href="#">View Itinerary</Card.Link>
+    }}  >Edit Trip</Link><br />
+    <Link to={{ 
+      pathname: '/additem',
+      state: {trip}
+    }}  >Add Itinerary Item</Link><br />
+     <Link to={{ 
+      pathname: '/items',
+      state: {trip}
+    }}  >View Itinerary</Link><br />
+    
   </Card.Body>
 </Card>
       :

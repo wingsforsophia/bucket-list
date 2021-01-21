@@ -9,9 +9,10 @@ module.exports = {
 };
 
 function create(req, res) {
+  req.body.addedBy = req.user._id
   Item.create(req.body).then((item) => {
     Trip.findById(req.params.id).then((trip) => {
-      trip.itinerary.push(item._id);
+      trip.itinerary.push(item._id)
       trip.save().then((trip) => {
         res.json(trip);
       });
@@ -25,7 +26,10 @@ function index(req, res) {
     .populate("itinerary")
     .then((trip) => {
       res.json(trip);
+    }).catch((err) => {
+      res.json(err);
     });
+    
 }
 
 function update(req, res) {

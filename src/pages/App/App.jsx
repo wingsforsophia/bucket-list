@@ -21,6 +21,8 @@ import VanillaTripList from '../VanillaTripList/VanillaTripList'
 import POIDetails from '../POIDetails/POIDetails'
 import VanillaEditTrip from "../VanillaEditTrip/VanillaEditTrip";
 import MessageBoard from '../MessageBoard/MessageBoard'
+import AddItem from '../AddItem/AddItem'
+import ItemList from '../ItemList/ItemList'
 import MessageDetails from '../MessageDetails/MessageDetails'
 
 class App extends Component {
@@ -130,6 +132,103 @@ class App extends Component {
             )
           }
         />
+       <Route 
+          exact path='/profile'
+          render={() => 
+            <Profile
+              user={this.state.user} />
+              }
+            /> 
+            <Route 
+          exact path='/addtrip'
+          render={() => 
+            <AddTrips 
+              user={this.state.user} />
+              }
+            /> 
+          <Route 
+          exact path='/trips'
+          render={() => 
+            <ViewTrips 
+              user={this.state.user} />
+              }
+            />
+            <Route 
+            exact path='/discussion'
+            render={() => <Messages user={this.state.user} />}
+            />
+            <Route 
+            exact path='/search'
+            render={() => <POISearch />}
+            />
+            <Route
+            exact path='/discussion/:name'
+            render={({match})=>
+            <DiscussionPost match={match} user={this.state.user}/>}
+            />  
+              <Route
+            exact path='/destinations'
+            render={({match})=>
+            <Destinations match={match} user={this.state.user}/>}
+            /> 
+            <Route exact path='/destinations/:name' render={({match})=><DiscussionPost match={match} user={this.state.user}/>}
+            />  
+            <Route exact path='/favorites' render={()=><Favorite user={this.state.user}/>}
+            />  
+
+           <Route 
+             exact path='/vanilla'
+             render={() => 
+              authService.getUser() ?
+              <VanillaAddTrip 
+                user={this.state.user}  
+              />
+              : 
+              <Redirect to='/login'/>
+            }
+          />
+            <Route 
+              exact path='/vanillatrips'
+              render={() => 
+                <VanillaTripList
+                  user={this.state.user}
+                />
+              }
+            />
+            <Route 
+             exact path='/edittrip'
+             render={() => 
+              <VanillaEditTrip />
+            }
+            />
+            <Route 
+              exact path='/additem'
+              render={({location}) => 
+                <AddItem 
+                 user={this.state.user}
+                 location={location}
+                />
+              }
+            />
+             <Route 
+              exact path='/items'
+              render={({location}) => 
+                <ItemList 
+                 user={this.state.user}
+                 location={location}
+                 /> 
+                
+              }
+              />
+           
+            <Route 
+            exact path = '/search/:id'
+            render={({match}) => <POIDetails match={match}/>}
+            />
+            <Route 
+            exact path='/messageBoard'
+            render={()=> <MessageBoard user={this.state.user}/>}
+            />
         <Route
           exact
           path='/vanillatrips'

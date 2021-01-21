@@ -39,7 +39,6 @@ function create(req, res) {
       .then((user) => {
         user.trips.push(trip._id);
         user.save()
-        // .populate('trips')
         .then((trip) => {
           res.json(trip);
 
