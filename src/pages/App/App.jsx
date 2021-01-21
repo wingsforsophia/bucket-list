@@ -20,7 +20,7 @@ import VanillaAddTrip from '../VanillaAddTrip/VanillaAddTrip'
 import VanillaTripList from '../VanillaTripList/VanillaTripList'
 import POIDetails from '../POIDetails/POIDetails'
 import VanillaEditTrip from "../VanillaEditTrip/VanillaEditTrip";
-// import MessageBoard from '../MessageBoard/MessageBoard'
+import MessageBoard from '../MessageBoard/MessageBoard'
 
 class App extends Component {
   state = {
@@ -149,10 +149,10 @@ class App extends Component {
             exact path = '/search/:id'
             render={({match}) => <POIDetails match={match}/>}
             />
-            {/* <Route 
+            <Route 
             exact path='/messageBoard'
             render={()=> <MessageBoard user={this.state.user}/>}
-            /> */}
+            />
       </>
     );
   }
