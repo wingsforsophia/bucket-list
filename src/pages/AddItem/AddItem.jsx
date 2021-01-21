@@ -53,8 +53,14 @@ function AddItem(props) {
                 </div>
                 <div className="row">
                   <div className="input-field col s12">
-                    <input name="location" id="location" type=""  value={state.location} onChange={handleChange}/>
+                    <input name="location" id="location" type="text"  value={state.location} onChange={handleChange}/>
                     <label htmlFor="location">Location</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input name="notes" id="notes" type="text"  value={state.notes} onChange={handleChange}/>
+                    <label htmlFor="notes">Notes</label>
                   </div>
                 </div>
                 {/* <div className="row">
