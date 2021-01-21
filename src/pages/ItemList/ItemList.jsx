@@ -6,35 +6,39 @@ import ItemsShowList from '../../components/ItemShowList/ItemShowList'
 
 
 
-function ItemsList(props) {
-    console.log(props)
+function ItemList(props) {
+   
   
     const [items, setItems]= useState([])
 
     useEffect(() => {
         (async function(){
-          const items = await itemAPI.getAll();
-          setItems(items);
+          const allItems = await itemAPI.getAll( props.location.state.trip._id );
+          setItems(allItems);
         })();
       }, [])
 
-      return ( 
+  
 
-        <> 
+      return ( 
+          <> 
+          {items.itinerary.length ?
               
               <div >
-                  {items.map(item =>
+                  {items.itinerary.map(item =>
                   <ItemsShowList 
                     key={item._id}
                     item={item}
                     user={props.user}
                     />
-                  )}
+                   )} 
               </div>
             
-            </>
-        
+            :
+            ""
+        }
+        </>
              );
 }
 
-export default ItemsList;
+export default ItemList;
