@@ -43,6 +43,7 @@ function reply(req, res) {
   MessageBoard.findById(req.params.id).then((message) => {
     // req.body.postedBy = req.user.name;
     // req.body.avatar = req.user.avatar;
+    console.log(req.body)
     message.replies.push(req.body);
     message
       .save()

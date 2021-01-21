@@ -32,10 +32,10 @@ class MessageBoard extends Component {
         <>
           {this.state.messages.map((m) => (
             <>
-              <MessageCard key={m._id} content={m.content} postedBy={m.postedBy} />
-              {m.replies.map((r) => (
+              <MessageCard key={m._id} content={m.content} postedBy={m.postedBy} id={m._id}/>
+              {/* {m.replies.map((r) => (
                 <MessageReply key={r._id} content={r.content} postedBy={r.postedBy} />
-              ))}
+              ))} */}
             </>
           ))}
         </>
