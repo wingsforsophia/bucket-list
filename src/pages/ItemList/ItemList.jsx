@@ -17,12 +17,23 @@ function ItemsList(props) {
         })();
       }, [])
 
-    return (
-        <>
-         <h3>items  List</h3>
-         
-        </>
-    );
+      return ( 
+
+        <> 
+              
+              <div >
+                  {/* {items.map(item =>
+                  <VanillaTripShowCard 
+                    key={item._id}
+                    item={item}
+                    user={props.user}
+                    />
+                  )} */}
+              </div>
+              <h1>Items List</h1>
+            </>
+        
+             );
 }
 
 export default ItemsList;
