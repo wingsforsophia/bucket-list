@@ -176,25 +176,8 @@ class App extends Component {
             <Route exact path='/favorites' render={()=><Favorite user={this.state.user}/>}
             />  
 
-           <Route 
-             exact path='/vanilla'
-             render={() => 
-              authService.getUser() ?
-              <VanillaAddTrip 
-                user={this.state.user}  
-              />
-              : 
-              <Redirect to='/login'/>
-            }
-          />
-            <Route 
-              exact path='/vanillatrips'
-              render={() => 
-                <VanillaTripList
-                  user={this.state.user}
-                />
-              }
-            />
+           
+            
             <Route 
              exact path='/edittrip'
              render={() => 
