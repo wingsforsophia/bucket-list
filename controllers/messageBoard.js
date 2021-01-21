@@ -1,4 +1,4 @@
-const MessageBoard = require("../models/messageBoard");
+const MessageBoard = require("../models/MessageBoard");
 
 module.exports = {
   index,
