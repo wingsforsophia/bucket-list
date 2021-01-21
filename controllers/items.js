@@ -26,7 +26,10 @@ function index(req, res) {
     .populate("itinerary")
     .then((trip) => {
       res.json(trip);
+    }).catch((err) => {
+      res.json(err);
     });
+    
 }
 
 function update(req, res) {

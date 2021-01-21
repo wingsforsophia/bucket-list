@@ -9,3 +9,10 @@ export function create(item, tripId) {
   }, {mode: "cors"})
   .then(res => res.json())
 }
+
+export function getAll(items, tripId) {
+    return fetch (`/trips/${tripId}/items`, {
+        mode: 'cors'
+    }).then(res => res.json(items))
+
+}

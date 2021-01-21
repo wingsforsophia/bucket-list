@@ -22,6 +22,7 @@ import POIDetails from '../POIDetails/POIDetails'
 import VanillaEditTrip from "../VanillaEditTrip/VanillaEditTrip";
 import MessageBoard from '../MessageBoard/MessageBoard'
 import AddItem from '../AddItem/AddItem'
+import ItemList from '../ItemList/ItemList'
 
 class App extends Component {
   state = {
@@ -155,6 +156,17 @@ class App extends Component {
                 />
               }
             />
+             <Route 
+              exact path='/items'
+              render={({location}) => 
+                <ItemList 
+                 user={this.state.user}
+                 location={location}
+                 /> 
+                
+              }
+              />
+           
             <Route 
             exact path = '/search/:id'
             render={({match}) => <POIDetails match={match}/>}
