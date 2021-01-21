@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import * as itemAPI from '../../services/item-api'
+import ItemsShowList from '../../components/ItemShowList/ItemShowList'
 
 
 
@@ -22,15 +23,15 @@ function ItemsList(props) {
         <> 
               
               <div >
-                  {/* {items.map(item =>
-                  <VanillaTripShowCard 
+                  {items.map(item =>
+                  <ItemsShowList 
                     key={item._id}
                     item={item}
                     user={props.user}
                     />
-                  )} */}
+                  )}
               </div>
-              <h1>Items List</h1>
+            
             </>
         
              );
