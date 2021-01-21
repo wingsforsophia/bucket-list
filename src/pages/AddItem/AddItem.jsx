@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import * as itemAPI from '../../services/item-api'
-// import Datetime from 'react-datetime'
-// import Calendar from '../../components/Calendar/Calendar'
 
 
 function AddItem(props) {
   const history = useHistory()
+  const location = useLocation()
   const [invalidForm, setValidForm] = useState(true)
   const formRef = useRef()
 
@@ -16,13 +15,14 @@ function AddItem(props) {
     time: '',
     location: '',
     notes: '',
+    tripId: location.state.trip._id,
     // completed: false,
-    // tickets: false, 
-    // reservations: false   
+    // tickets: '', 
+    // reservations: ''   
   })
 
   async function handleAddItem(newItemData) {
-    await itemAPI.create(newItemData)
+    await itemAPI.create(newItemData, state.tripId)
     history.push('/items') 
 }
     useEffect(() => {
@@ -69,7 +69,7 @@ function AddItem(props) {
                     <label htmlFor="city">Completed?</label>
                   </div>
                 </div> */}
-                <div className="row">
+                {/* <div className="row">
                   <div className="input-field col s12">
                     <input name="tickets" id="tickets" type="checkbox"  value={state.tickets} onChange={handleChange}/>
                     <label htmlFor="tickets">Tickets needed?</label>
@@ -80,7 +80,7 @@ function AddItem(props) {
                     <input name="reservations" id="reservations" type="checkbox"  value={state.reservations} onChange={handleChange}/>
                     <label htmlFor="reservations">Reservations needed?</label>
                   </div>
-                </div>
+                </div> */}
                 <button
                     type="submit"
                     disabled={invalidForm}
