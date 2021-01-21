@@ -10,7 +10,7 @@ function TripShowCard({ user, trip, handleDeleteTrip}) {
         
         <>
         {trip.addedBy._id === user._id ? 
-        <Card style={{ width: '18rem' }}>
+        <Card style={{width: '18rem', height: '25rem'}}>
   <Card.Body>
     <Card.Title className="mb-2 text-muted">Trip Name: {trip.tripName}</Card.Title><br />
     <Card.Subtitle className="mb-2 text-muted">Dates: {trip.startDate} - {trip.endDate}</Card.Subtitle><br />
