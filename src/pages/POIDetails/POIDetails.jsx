@@ -20,7 +20,7 @@ class POIDetails extends Component {
   render() {
     
     return (
-      <div>
+      <div className='centered'>
         {this.state.poiDetails.images ? (
           <div>
             <h1 style={{ color: "wheat", textAlign: "center" }}>
