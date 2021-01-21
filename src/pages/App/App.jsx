@@ -151,7 +151,7 @@ class App extends Component {
             />
             <Route 
             exact path='/messageBoard'
-            render={()=> <MessageBoard user={this.state.user}/>}
+            render={({history})=> <MessageBoard history={history} user={this.state.user}/>}
             />
       </>
     );
