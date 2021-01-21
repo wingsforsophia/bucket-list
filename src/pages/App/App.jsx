@@ -23,6 +23,7 @@ import VanillaEditTrip from "../VanillaEditTrip/VanillaEditTrip";
 import MessageBoard from '../MessageBoard/MessageBoard'
 import AddItem from '../AddItem/AddItem'
 import ItemList from '../ItemList/ItemList'
+import MessageDetails from '../MessageDetails/MessageDetails'
 
 class App extends Component {
   state = {
@@ -43,17 +44,13 @@ class App extends Component {
     const { user } = this.state
     return (
       <>
-        <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
-        <FooterButtons/>
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+        <FooterButtons />
+        <Route exact path='/' render={() => <Home />} />
+
         <Route
           exact
-          path="/"
-          render={() => (<Home />)}
-        />
-        
-        <Route
-          exact
-          path="/signup"
+          path='/signup'
           render={({ history }) => (
             <Signup
               history={history}
@@ -63,7 +60,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/login"
+          path='/login'
           render={({ history }) => (
             <Login
               history={history}
@@ -73,9 +70,66 @@ class App extends Component {
         />
         <Route
           exact
-          path="/users"
+          path='/users'
+          render={() => (user ? <Users /> : <Redirect to='/login' />)}
+        />
+        <Route
+          exact
+          path='/profile'
+          render={() => <Profile user={this.state.user} />}
+        />
+        <Route
+          exact
+          path='/addtrip'
+          render={() => <AddTrips user={this.state.user} />}
+        />
+        <Route
+          exact
+          path='/trips'
+          render={() => <ViewTrips user={this.state.user} />}
+        />
+        <Route
+          exact
+          path='/discussion'
+          render={() => <Messages user={this.state.user} />}
+        />
+        <Route exact path='/search' render={() => <POISearch />} />
+        <Route
+          exact
+          path='/discussion/:name'
+          render={({ match }) => (
+            <DiscussionPost match={match} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/destinations'
+          render={({ match }) => (
+            <Destinations match={match} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/destinations/:name'
+          render={({ match }) => (
+            <DiscussionPost match={match} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/favorites'
+          render={() => <Favorite user={this.state.user} />}
+        />
+
+        <Route
+          exact
+          path='/vanilla'
           render={() =>
-            user ? <Users /> : <Redirect to="/login" />
+            authService.getUser() ? (
+              <VanillaAddTrip user={this.state.user} />
+            ) : (
+              <Redirect to='/login' />
+            )
           }
         />
        <Route 
@@ -175,6 +229,31 @@ class App extends Component {
             exact path='/messageBoard'
             render={()=> <MessageBoard user={this.state.user}/>}
             />
+        <Route
+          exact
+          path='/vanillatrips'
+          render={() => <VanillaTripList user={this.state.user} />}
+        />
+        <Route exact path='/edittrip' render={() => <VanillaEditTrip />} />
+        <Route
+          exact
+          path='/search/:id'
+          render={({ match }) => <POIDetails match={match} />}
+        />
+        <Route
+          exact
+          path='/messageBoard'
+          render={({ history }) => (
+            <MessageBoard history={history} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/messageBoard/:id'
+          render={({ history, match }) => (
+            <MessageDetails history={history} match={match} user={this.state.user} />
+          )}
+        />
       </>
     );
   }
