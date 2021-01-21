@@ -19,6 +19,7 @@ import Favorite from '../../pages/Favorites/Favorite'
 import VanillaAddTrip from '../VanillaAddTrip/VanillaAddTrip'
 import VanillaTripList from '../VanillaTripList/VanillaTripList'
 import POIDetails from '../POIDetails/POIDetails'
+import VanillaEditTrip from "../VanillaEditTrip/VanillaEditTrip";
 // import MessageBoard from '../MessageBoard/MessageBoard'
 
 class App extends Component {
@@ -137,6 +138,12 @@ class App extends Component {
                   user={this.state.user}
                 />
               }
+            />
+            <Route 
+             exact path='/edittrip'
+             render={() => 
+              <VanillaEditTrip />
+            }
             />
             <Route 
             exact path = '/search/:id'
