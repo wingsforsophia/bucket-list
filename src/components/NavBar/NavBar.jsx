@@ -47,7 +47,7 @@ const NavBar = ({ user, handleLogout }) => {
                   </Link>
                 </li>
                 <li className='nav-item'>
-                  <Link to='/discussion' className='nav-link'>
+                  <Link to='/messageBoard' className='nav-link'>
                     Practice Message Board
                   </Link>
                 </li>
