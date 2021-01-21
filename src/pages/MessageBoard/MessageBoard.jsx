@@ -1,22 +1,27 @@
 import React, { Component } from "react";
 import "./MessageBoard.css";
-import MessageSearch from '../../components/MessageSearch/MessageSearch'
-import {getMessagesByCategory} from '../../services/api-calls'
+
+import {getMessages} from '../../services/api-calls'
 
 class MessageBoard extends Component {
   state = {
     messages: [],
   };
-  componentDidMount
+
+  async componentDidMount() {
+    const messages = await getMessages();
+    this.setState({ messages});
+  }
+  
 
   render() {
-    return (
-      <div>
-        <MessageSearch />
-        {this.messages}
-      </div>
-    );
+      return(
+          <div>
+              <h1>Message Board</h1>
+          </div>
+      )
   }
 }
+
 
 export default MessageBoard;
