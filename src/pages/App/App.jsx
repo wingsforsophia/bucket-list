@@ -21,6 +21,7 @@ import VanillaTripList from '../VanillaTripList/VanillaTripList'
 import POIDetails from '../POIDetails/POIDetails'
 import VanillaEditTrip from "../VanillaEditTrip/VanillaEditTrip";
 import MessageBoard from '../MessageBoard/MessageBoard'
+import AddItem from '../AddItem/AddItem'
 
 class App extends Component {
   state = {
@@ -144,6 +145,12 @@ class App extends Component {
              render={() => 
               <VanillaEditTrip />
             }
+            />
+            <Route 
+              exact path='/additem'
+              render={() => 
+                <AddItem />
+              }
             />
             <Route 
             exact path = '/search/:id'
