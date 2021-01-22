@@ -100,7 +100,7 @@ class App extends Component {
           path='/discussion'
           render={() => <Messages user={this.state.user} />}
         />
-        <Route exact path='/search' render={() => <POISearch />} />
+        
         <Route
           exact
           path='/discussion/:name'
