@@ -43,7 +43,7 @@ __Pages__
 
 
 ## Technologies Used 
-MongoDB, Express, React, Node
+MongoDB, Express, React, Node, Triposo API
 @material-ui/icons
 @material-ui/core
 Tinder Cards

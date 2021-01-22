@@ -132,13 +132,7 @@ class App extends Component {
             )
           }
         />
-       <Route 
-          exact path='/profile'
-          render={() => 
-            <Profile
-              user={this.state.user} />
-              }
-            /> 
+     
             <Route 
           exact path='/addtrip'
           render={() => 
