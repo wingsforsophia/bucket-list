@@ -24,6 +24,8 @@ import MessageBoard from '../MessageBoard/MessageBoard'
 import AddItem from '../AddItem/AddItem'
 import ItemList from '../ItemList/ItemList'
 import MessageDetails from '../MessageDetails/MessageDetails'
+import EditProfile from '../Profile/EditProfile/EditProfile'
+import * as profileAPI from '../../services/profile-api'
 
 class App extends Component {
   state = {
@@ -40,6 +42,11 @@ class App extends Component {
     this.setState({ user: authService.getUser() });
   };
 
+
+  handleCreateUserInfo= async formData=>{
+    const profile= await profileAPI.update(this.state.user._id, formData)
+    this.setState(profile)
+   }
   render() {
     const { user } = this.state
     return (
@@ -132,7 +139,21 @@ class App extends Component {
             )
           }
         />
+<<<<<<< HEAD
+           <Route 
+          exact path='/profile/edit'
+          render={() => 
+            <EditProfile
+              user={this.state.user}  handleCreateUserInfo={this.handleCreateUserInfo} />
+              }
+            /> 
+            <Route exact path='/profile'
+            render={({match, location})=><Profile location={location} handleCreateUerInfo={this.handleCreateUserInfo} user={this.state.user}  match={match}/>
+            }/>
+            <Route exact path='/users/:user' render={({match})=> <Profile   match={match}/> }/>
+=======
      
+>>>>>>> 571be818caaf89d3955c5e38a368b9b12f6d2d72
             <Route 
           exact path='/addtrip'
           render={() => 

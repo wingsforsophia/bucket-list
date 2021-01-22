@@ -17,6 +17,7 @@ const itemsRouter = require('./routes/items')
 const apiRouter = require('./routes/api')
 const discussionRouter = require('./routes/discussionBoard')
 const messageBoardRouter = require('./routes/messageBoard')
+const profileRouter =require('./routes/profile')
 
 const cors = require('cors')
 
@@ -37,7 +38,7 @@ app.use('/trips', itemsRouter);
 app.use('/pickles', apiRouter);
 app.use('/discussion/:name', discussionRouter)
 app.use('/messageBoard', messageBoardRouter)
-
+app.use('/api/profile', profileRouter)
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
