@@ -23,7 +23,7 @@ function AddItem(props) {
 
   async function handleAddItem(newItemData) {
     await itemAPI.create(newItemData, state.tripId)
-    history.push('/items') 
+    history.push('/vanillatrips') 
 }
     useEffect(() => {
         formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true)
