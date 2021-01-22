@@ -16,10 +16,8 @@ import DiscussionPost from '../Messages/DiscussionPost/DiscussionPosts'
 import Destinations from '../Messages/Destinations/Destinations'
 import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
 import Favorite from '../../pages/Favorites/Favorite'
-<<<<<<< HEAD
 import Messenger from '../../pages/SocketMessenger/Messenger'
 
-=======
 import VanillaAddTrip from '../VanillaAddTrip/VanillaAddTrip'
 import VanillaTripList from '../VanillaTripList/VanillaTripList'
 import POIDetails from '../POIDetails/POIDetails'
@@ -30,7 +28,6 @@ import ItemList from '../ItemList/ItemList'
 import MessageDetails from '../MessageDetails/MessageDetails'
 import EditProfile from '../Profile/EditProfile/EditProfile'
 import * as profileAPI from '../../services/profile-api'
->>>>>>> 6be7ef84d5a66314b14f2b7a74f9f986856a91e2
 
 class App extends Component {
   state = {
