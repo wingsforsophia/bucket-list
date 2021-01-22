@@ -16,8 +16,21 @@ import DiscussionPost from '../Messages/DiscussionPost/DiscussionPosts'
 import Destinations from '../Messages/Destinations/Destinations'
 import FooterButtons from '../../components/Buttons/FooterButtons/FooterButtons'
 import Favorite from '../../pages/Favorites/Favorite'
+<<<<<<< HEAD
 import Messenger from '../../pages/SocketMessenger/Messenger'
 
+=======
+import VanillaAddTrip from '../VanillaAddTrip/VanillaAddTrip'
+import VanillaTripList from '../VanillaTripList/VanillaTripList'
+import POIDetails from '../POIDetails/POIDetails'
+import VanillaEditTrip from "../VanillaEditTrip/VanillaEditTrip";
+import MessageBoard from '../MessageBoard/MessageBoard'
+import AddItem from '../AddItem/AddItem'
+import ItemList from '../ItemList/ItemList'
+import MessageDetails from '../MessageDetails/MessageDetails'
+import EditProfile from '../Profile/EditProfile/EditProfile'
+import * as profileAPI from '../../services/profile-api'
+>>>>>>> 6be7ef84d5a66314b14f2b7a74f9f986856a91e2
 
 class App extends Component {
   state = {
@@ -35,22 +48,23 @@ class App extends Component {
     this.setState({ user: authService.getUser() });
   };
 
+
+  handleCreateUserInfo= async formData=>{
+    const profile= await profileAPI.update(this.state.user._id, formData)
+    this.setState(profile)
+   }
   render() {
     const { user } = this.state
     
     return (
       <>
-        <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
-        <FooterButtons/>
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+        <FooterButtons />
+        <Route exact path='/' render={() => <Home />} />
+
         <Route
           exact
-          path="/"
-          render={() => (<Home />)}
-        />
-        
-        <Route
-          exact
-          path="/signup"
+          path='/signup'
           render={({ history }) => (
             <Signup
               history={history}
@@ -60,7 +74,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/login"
+          path='/login'
           render={({ history }) => (
             <Login
               history={history}
@@ -70,18 +84,79 @@ class App extends Component {
         />
         <Route
           exact
-          path="/users"
+          path='/users'
+          render={() => (user ? <Users /> : <Redirect to='/login' />)}
+        />
+        <Route
+          exact
+          path='/profile'
+          render={() => <Profile user={this.state.user} />}
+        />
+        <Route
+          exact
+          path='/addtrip'
+          render={() => <AddTrips user={this.state.user} />}
+        />
+        <Route
+          exact
+          path='/trips'
+          render={() => <ViewTrips user={this.state.user} />}
+        />
+        <Route
+          exact
+          path='/discussion'
+          render={() => <Messages user={this.state.user} />}
+        />
+        <Route exact path='/search' render={() => <POISearch />} />
+        <Route
+          exact
+          path='/discussion/:name'
+          render={({ match }) => (
+            <DiscussionPost match={match} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/destinations'
+          render={({ match }) => (
+            <Destinations match={match} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/destinations/:name'
+          render={({ match }) => (
+            <DiscussionPost match={match} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/favorites'
+          render={() => <Favorite user={this.state.user} />}
+        />
+
+        <Route
+          exact
+          path='/vanilla'
           render={() =>
-            user ? <Users /> : <Redirect to="/login" />
+            authService.getUser() ? (
+              <VanillaAddTrip user={this.state.user} />
+            ) : (
+              <Redirect to='/login' />
+            )
           }
         />
-       <Route 
-          exact path='/profile'
+           <Route 
+          exact path='/profile/edit'
           render={() => 
-            <Profile
-              user={this.state.user} />
+            <EditProfile
+              user={this.state.user}  handleCreateUserInfo={this.handleCreateUserInfo} />
               }
             /> 
+            <Route exact path='/profile'
+            render={({match, location})=><Profile location={location} handleCreateUerInfo={this.handleCreateUserInfo} user={this.state.user}  match={match}/>
+            }/>
+            <Route exact path='/users/:user' render={({match})=> <Profile   match={match}/> }/>
             <Route 
           exact path='/addtrip'
           render={() => 
@@ -122,6 +197,64 @@ class App extends Component {
             render={()=><Messenger  user={this.state.user} chatMessages={this.state.chat}/>}
             />
 
+           
+            
+            <Route 
+             exact path='/edittrip'
+             render={() => 
+              <VanillaEditTrip />
+            }
+            />
+            <Route 
+              exact path='/additem'
+              render={({location}) => 
+                <AddItem 
+                 user={this.state.user}
+                 location={location}
+                />
+              }
+            />
+             <Route 
+              exact path='/items'
+              render={({location}) => 
+                <ItemList 
+                 user={this.state.user}
+                 location={location}
+                 /> 
+                
+              }
+              />
+           
+            <Route 
+            exact path = '/search/:id'
+            render={({match}) => <POIDetails match={match}/>}
+            />
+          
+        <Route
+          exact
+          path='/vanillatrips'
+          render={() => <VanillaTripList user={this.state.user} />}
+        />
+        <Route exact path='/edittrip' render={() => <VanillaEditTrip />} />
+        <Route
+          exact
+          path='/search/:id'
+          render={({ match }) => <POIDetails match={match} />}
+        />
+        <Route
+          exact
+          path='/messageBoard'
+          render={({ history }) => (
+            <MessageBoard history={history} user={this.state.user} />
+          )}
+        />
+        <Route
+          exact
+          path='/messageBoard/:id'
+          render={({ history, match }) => (
+            <MessageDetails history={history} match={match} user={this.state.user} />
+          )}
+        />
       </>
     );
   }

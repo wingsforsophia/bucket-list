@@ -27,7 +27,7 @@ const config={
 const Countdown =()=> {
   const[timerDays, setTimerDays]= useState('00')
   const[timerHours, setTimerHours]=useState('00')
-  const[timerMinutes, setTimerMinutes]=useState('00')
+  const[timerMinutes, setTimerMinutes]=useState('15')
   const[timerSeconds, setTimerSeconds]=useState('00')
   const[showConfetti, setShowConfetti]=useState(false)
 
@@ -36,7 +36,7 @@ const Countdown =()=> {
  
 
   const startTimer =()=>{
-    const countdownDate = new Date('January 18, 2021 05:09:00').getTime()
+    const countdownDate = new Date('January 22, 2021 09:45:00').getTime()
 
 
   const config={

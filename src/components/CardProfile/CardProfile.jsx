@@ -1,60 +1,91 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './CardProfile.css'
+import {Link} from 'react-router-dom'
+import {location} from 'react-router-dom'
+import * as profileAPI from '../../services/profile-api'
+import {useForm} from 'react-hook-form'
+import { render } from '@testing-library/react';
+ 
 
-const ImgUpload =({
-  onChange,
-  src
+
+
+
+
+const UserImgUpload =({
+  onChange,src
 })=>
   <label htmlFor="photo-upload" className="custom-file-upload fas">
     <div className="img-wrap img-upload" >
       <img className='userProfile' for="photo-upload" src={src}/>
     </div>
     <br/>
-     <input className='chooseFile' id="photo-upload" type="file" onChange={onChange}/> 
-    
+     <input className='chooseFile' id="photo-upload" type="file" onChange={onChange}/>
+
   </label>
 
 
 const Name =({
   onChange,
-  value
+  name
 })=>
   <div className="field">
     <label className= 'cardProfile' htmlFor="name">
       name:
     </label>
-    <input 
-      id="name" 
-      type="text" 
-      onChange={onChange} 
-      maxlength="25" 
-      value={value} 
-      placeholder="Alexa" 
+    <input
+      id="name"
+      type="text"
+      onChange={onChange}
+      maxlength="20"
+      value={name}
       required/>
   </div>
 
-  
+
+const Bio =({
+  onChange,
+  bio
+})=>
+<div className="field">
+<label className= 'cardProfile' htmlFor="bio">
+  Bio:
+</label>
+<textarea
+  id="name"
+  type="text"
+  onChange={onChange}
+  maxlength="500"
+  value={bio}
+  required/>
+</div>
+
 const Status =({
   onChange,
-  value
+  status
 })=>
   <div className="field">
     <label className='cardProfile' htmlFor="status">
-      status:
+      current status:
     </label>
-    <input 
+    <select onChange={onChange}  value={status} >
+      <option>Dreaming of a vacation</option>
+      <option>Business Trip</option>
+      <option>Weekend Getaway</option>
+      <option>Honeymoon or Romantic Vacation</option>
+      <option>Family Trip</option>
+    </select>
+    {/* <input 
       id="status" 
       type="text" 
       onChange={onChange} 
       maxLength="35" 
       value={value} 
       placeholder="It's a nice day!" 
-      required/>
+      required/> */}
   </div>
-
 const Dream =({
   onChange,
-  value
+  dream
 })=>
   <div className="field">
     <label className='cardProfile' htmlFor="dream">
@@ -65,17 +96,17 @@ const Dream =({
       type="text" 
       onChange={onChange} 
       maxLength="35" 
-      value={value} 
+      value={dream} 
       placeholder="Bora Bora!" 
-      required/>
+      />
   </div>
 
 const Favorite =({
   onChange,
-  value
+  favorite
 })=>
   <div className="field">
-    <label className='cardProfile' htmlFor="favorite">
+    <label className='cardProfile' htmlFor="dream">
       favorite destination:
     </label>
     <input 
@@ -83,20 +114,22 @@ const Favorite =({
       type="text" 
       onChange={onChange} 
       maxLength="35" 
-      value={value} 
+      value={favorite} 
       placeholder="Africa!" 
-      required/>
+      />
   </div>
+
 const Profile =({
   onSubmit,
   src,
   name,
+  bio,
   status,
   dream,
   favorite
 })=>
   <div className="profilePic">
-    <form className='cardProfile'onSubmit={onSubmit}>
+    <form className='cardProfile' onSubmit={onSubmit} >
       <label className="custom-file-upload fas">
         <div className="img-wrap" >
           <img className='userProfile' for="photo-upload" src={src}/>
@@ -104,36 +137,47 @@ const Profile =({
       </label>
       <div className='inputProfile'>
         <div className="name">{name}</div>
-        <div className="status">{status}</div>
-        <div className='dream'>{dream}</div>
+        <div className='stauts'>{status}</div>
+        <div className='bio'>{bio}</div>
+        <div className='status'>{dream}</div>
         <div className='favorite'>{favorite}</div>
-      <button type="submit" className="edit">Edit Profile </button>
+      <button type="submit" className="edit"> Edit Profile </button>
+      <Link to ={{pathname:'/profile'}} ><button>Cancel</button></Link>
       </div>
     </form>
   </div>
-     
-      
+
+
 const Edit =({
   onSubmit,
   children,
 })=>
   <div className="profilePic">
-    <form onSubmit={onSubmit}>
-        {children}
-      <button type="submit" className="save">Save </button>
+    <form  onSubmit={onSubmit}>
+        {children} 
+     <button type="submit" className="save">Save </button>
     </form>
   </div>
 
-class CardProfile extends React.Component {
+class CardProfile extends Component {
+
   state = {
+    user: '',
     file: '',
-    imagePreviewUrl: 'https://github.com/OlgaKoplik/CodePen/blob/master/profile.jpg?raw=true',
+    imgUrl: '',
     name:'',
-    status:'',
+    bio: '',
+    status: '',
     dream: '',
     favorite: '',
-    active: 'edit'
+    // active: 'edit',
+    // invalidForm: false,
+   
+    
   }
+
+  
+  formRef= React.createRef()
 
   photoUpload = e =>{
     e.preventDefault();
@@ -142,64 +186,114 @@ class CardProfile extends React.Component {
     reader.onloadend = () => {
       this.setState({
         file: file,
-        imagePreviewUrl: reader.result
+        imageUrl: reader.result
       });
     }
     reader.readAsDataURL(file);
   }
   editName = e =>{
     const name = e.target.value;
+    const formData={...this.state.formData, [e.target.name]:e.target.name}
     this.setState({
+      formData: formData,
       name,
     });
   }
-  
+
+  editBio = e => {
+    const bio = e.target.value;
+    const formData={...this.state.formData, [e.target.name]:e.target.bio}
+    this.setState({
+      formData: formData,
+      bio,
+    });
+  }
   editStatus = e => {
     const status = e.target.value;
+    const formData={...this.state.formData, [e.target.name]:e.target.status}
     this.setState({
+      formData: formData,
       status,
     });
   }
-  
-  handleSubmit= e =>{
-    e.preventDefault();
-    let activeP = this.state.active === 'edit' ? 'profile' : 'edit';
+  editDream = e => {
+    const dream = e.target.value;
+    const formData={...this.state.formData, [e.target.dream]:e.target.dream}
     this.setState({
-      active: activeP,
-    })
+      formData: formData,
+      dream,
+    });
   }
+ 
+
+  editFavorite = e => {
+    const favorite = e.target.value;
+    const formData={...this.state.formData, [e.target.favorite]:e.target.favorite}
+    this.setState({
+      formData: formData,
+      favorite,
+    });
+  }
+
   
+
   render() {
-    const {imagePreviewUrl, 
-           name, 
-           status, 
+    const {imageUrl,
+           name,
+           bio,
            dream,
+           status,
            favorite,
-           active} = this.state;
+           } = this.state;
+          //  active
+           const handleSubmit= e =>{
+             e.preventDefault()
+    this.props.handleCreateUserInfo(this.state.formData)
+  
+    // let activeP = this.state.active === 'edit' ? 'profile' : 'edit';
+    // this.setState({
+      // active: activeP,
+    // })
+  }
+
+    
     return (
       <div>
 
-       
-        {(active === 'edit')?(
-          <Edit onSubmit={this.handleSubmit}>
-            <ImgUpload onChange={this.photoUpload} src={imagePreviewUrl}/>
-            <Name onChange={this.editName} value={name}/>
+
+        {/* {(active === 'edit')?(  */}
+          <Edit onSubmit={handleSubmit}>
+            <UserImgUpload onChange={this.photoUpload} src={imageUrl}/>
+            <Name onChange={this.editName} name={name} value={name}/>
             <Status onChange={this.editStatus} value={status}/>
+            <Bio onChange={this.editBio} value={bio}/>
             <Dream onChange={this.editDream} value={dream}/>
-            <Favorite onChange={this.editFavorite} value={favorite}/>
+            <Favorite onChange={this.favorite} value={favorite}/>
           </Edit>
-        ):(
-          <Profile 
-            onSubmit={this.handleSubmit} 
-            src={imagePreviewUrl} 
-            name={name} 
-            status={status}
-            dream={dream}
-            favorite={favorite}/>)}
-        
+        {/* // ):(
+        //   <Profile */}
+        {/* //   onSubmit={handleSubmit}
+        //     src={imageUrl}
+        //     name={name}
+        //     status={status}
+        //     dream={dream}
+        //     favorite={favorite}
+        //     bio={bio}/>) */}
       </div>
     )
   }
+// }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 export default CardProfile

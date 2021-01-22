@@ -37,7 +37,7 @@ const NavBar = ({ user, handleLogout }) => {
                   </a>{" "}
                 </li>
                 <li className='nav-item'>
-                  <Link to='/profile' className='nav-link'>
+                  <Link to='/profile/edit' className='nav-link'>
                     Profile
                   </Link>
                 </li>
@@ -47,8 +47,13 @@ const NavBar = ({ user, handleLogout }) => {
                   </Link> 
                 </li>
                 <li className='nav-item'>
+                  <Link to='/messageBoard' className='nav-link'>
+                    Practice Message Board
+                  </Link>
+                </li>
+                <li className='nav-item'>
                   <Link to='/search' className='nav-link'>
-                    Search for Points of interest 
+                    Search for Points of interest
                   </Link>
                 </li>
                 <li className='nav-item dropdown'>
@@ -67,10 +72,10 @@ const NavBar = ({ user, handleLogout }) => {
                     className='dropdown-menu'
                     aria-labelledby='navbarDropdown'
                   >
-                    <a className='dropdown-item' href='/addtrip'>
+                    <a className='dropdown-item' href='/vanilla'>
                       Add Trips
                     </a>
-                    <a className='dropdown-item' href='/trips'>
+                    <a className='dropdown-item' href='/vanillatrips'>
                       View Trips
                     </a>
                   </div>
