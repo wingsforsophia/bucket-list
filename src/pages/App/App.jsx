@@ -223,10 +223,7 @@ class App extends Component {
             exact path = '/search/:id'
             render={({match}) => <POIDetails match={match}/>}
             />
-            <Route 
-            exact path='/messageBoard'
-            render={()=> <MessageBoard user={this.state.user}/>}
-            />
+          
         <Route
           exact
           path='/vanillatrips'
