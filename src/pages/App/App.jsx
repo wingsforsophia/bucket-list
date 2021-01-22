@@ -139,6 +139,7 @@ class App extends Component {
             )
           }
         />
+<<<<<<< HEAD
            <Route 
           exact path='/profile/edit'
           render={() => 
@@ -150,6 +151,9 @@ class App extends Component {
             render={({match, location})=><Profile location={location} handleCreateUerInfo={this.handleCreateUserInfo} user={this.state.user}  match={match}/>
             }/>
             <Route exact path='/users/:user' render={({match})=> <Profile   match={match}/> }/>
+=======
+     
+>>>>>>> 571be818caaf89d3955c5e38a368b9b12f6d2d72
             <Route 
           exact path='/addtrip'
           render={() => 
