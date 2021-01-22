@@ -6,7 +6,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import ChatIcon from '@material-ui/icons/Chat';
 import IconButton from "@material-ui/core/IconButton"
-import {Link} from 'react-router-dom'
+
 
 
 function FooterButtons() {
@@ -27,9 +27,11 @@ function FooterButtons() {
                 <FavoriteIcon fontSize='large'/>
             </IconButton>
             </a>
+            <a href='/messenger'>
             <IconButton className='swipeButtons_lightning'>
                 <ChatIcon fontSize='large'/>
             </IconButton>
+             </a>
         </div>
     )
 }

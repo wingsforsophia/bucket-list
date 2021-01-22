@@ -6,6 +6,11 @@ const logger = require('morgan');
 const dotenv = require('dotenv')
 const fileUpload = require('express-fileupload');
 
+const http = require('http').Server(app);
+const io = require('./io');
+io.attach(http);
+
+
 
 require('dotenv').config();
 require('./config/database');
@@ -15,6 +20,7 @@ const authRouter = require('./routes/auth');
 const tripsRouter = require('./routes/trips')
 const itemsRouter = require('./routes/items')
 const apiRouter = require('./routes/api')
+const chatRouter = require('./routes/chat');
 const discussionRouter = require('./routes/discussionBoard')
 const messageBoardRouter = require('./routes/messageBoard')
 const profileRouter =require('./routes/profile')
@@ -36,6 +42,7 @@ app.use('/api/users', userRouter);
 app.use('/trips', tripsRouter);
 app.use('/trips', itemsRouter);
 app.use('/pickles', apiRouter);
+app.use('/messenger', chatRouter);
 app.use('/discussion/:name', discussionRouter)
 app.use('/messageBoard', messageBoardRouter)
 app.use('/api/profile', profileRouter)
