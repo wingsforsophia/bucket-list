@@ -24,16 +24,12 @@ function EditProfile({user, handleCreateUserInfo, props}){
     const [state, handleChange]= useForm(location.user)
 
 
-        
+ 
+
         
                
         
-                async function handleSubmit(e){
-                    e.preventDefault()
-                        await profileAPI.update()
-                        history.push('/profile')
-                    
-                }
+         
            
         
               return (

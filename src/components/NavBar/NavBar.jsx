@@ -37,7 +37,7 @@ const NavBar = ({ user, handleLogout }) => {
                   </a>{" "}
                 </li>
                 <li className='nav-item'>
-                  <Link to='/profile' className='nav-link'>
+                  <Link to='/profile/edit' className='nav-link'>
                     Profile
                   </Link>
                 </li>
