@@ -36,7 +36,7 @@ const Countdown =()=> {
  
 
   const startTimer =()=>{
-    const countdownDate = new Date('January 25, 2021 12:00:00').getTime()
+    const countdownDate = new Date('January 26, 2021 12:00:00').getTime()
 
 
   const config={
