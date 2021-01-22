@@ -5,7 +5,7 @@ const ItemsShowList = ({ user, item }) => {
     return ( 
     <> 
     <ListGroup>
-  <ListGroup.Item className="mb-1 text-muted"> {item.location} {item.date} </ListGroup.Item>
+  <ListGroup.Item className="mb-1 text-muted"> {item.time} {item.location} </ListGroup.Item>
   
 </ListGroup>
     </>
