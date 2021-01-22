@@ -72,10 +72,10 @@ const NavBar = ({ user, handleLogout }) => {
                     className='dropdown-menu'
                     aria-labelledby='navbarDropdown'
                   >
-                    <a className='dropdown-item' href='/addtrip'>
+                    <a className='dropdown-item' href='/vanilla'>
                       Add Trips
                     </a>
-                    <a className='dropdown-item' href='/trips'>
+                    <a className='dropdown-item' href='/vanillatrips'>
                       View Trips
                     </a>
                   </div>
