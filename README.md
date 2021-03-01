@@ -30,9 +30,7 @@ __Pages__
 -Edit each individual trip under Trip Details
 )
 4. Profile
-   (
-       
-   )
+   
 ## Ice Box Features
 - Connect to an API in order to actually book travel.
 - Overlay Points of Interest onto the map.
